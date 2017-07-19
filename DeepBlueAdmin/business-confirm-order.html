@@ -1,0 +1,341 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm-Order</title>
+
+    <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/local.css" />
+
+	<style>
+		.height {
+			min-height: 200px;
+		}
+
+		.icon {
+			font-size: 47px;
+			color: #5CB85C;
+		}
+
+		.iconbig {
+			font-size: 77px;
+			color: #5CB85C;
+		}
+
+		.table > tbody > tr > .emptyrow {
+			border-top: none;
+		}
+
+		.table > thead > tr > .emptyrow {
+			border-bottom: none;
+		}
+
+		.table > tbody > tr > .highrow {
+			border-top: 3px solid;
+		}
+		
+		#page-wrapper
+		{
+			padding-top: 0px;
+		}
+	</style>
+
+    <script type="text/javascript" src="../js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>   
+</head>
+<body>
+
+    <div id="wrapper">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.php">Welcome to Clutch</a>
+            </div>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li><a href="../index.php"><i class="fa fa-bullseye"></i> Dashboard</a></li>
+                    <li class="active"><a href="service-request.php"><i class="fa fa-list-ol"></i> Request Detail</a></li>         
+                </ul>
+                <ul class="nav navbar-nav navbar-right navbar-user">
+                    <li class="dropdown messages-dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> Messages <span class="badge"><?php echo $numberOfMessages; ?></span> <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-header"><?php echo $numberOfMessages; ?> New Messages</li>
+                            <li class="divider"></li>
+                            <li><a href="message-list.php">Go to Inbox <span class="badge"><?php echo $numberOfMessages; ?></span></a></li>
+                        </ul>
+                    </li>
+                     <li class="dropdown user-dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $_SESSION['user']->getUsername(); ?><b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="settings.php"><i class="fa fa-gear"></i> Settings</a></li>
+                            <li class="divider"></li>
+                            <li><a href="logout.php"><i class="fa fa-power-off"></i> Log Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div id="page-wrapper">
+
+            <div class="row">
+
+                <div class="col-lg-12 text-center v-center">
+
+					
+					
+					<div class="col-xs-12 container">
+						<div class="row">
+							<div class="col-xs-12">
+								<div class="text-center">
+									<h2>Invoice for purchase #<span id="purchaseId"><?php echo $detailInfo['id']; ?></span></h2>
+								</div>
+								<hr>
+								<div class="row">
+									<div class="col-xs-12 col-md-3 col-lg-4 pull-left">
+										<div class="panel panel-default height">
+											<div class="panel-heading">Detail Info</div>
+											<div class="panel-body">
+												<strong><?php echo $detailInfo['vehicleType']; ?>:</strong><br>
+												<?php  echo $month.' '.$date[1].', '.$date[2]; ?><br>
+												<?php  echo $needed[1].' '.$needed[2]; ?><br>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12 col-md-3 col-lg-4">
+										<div class="panel panel-default height">
+											<div class="panel-heading">Order Preferences</div>
+											<div class="panel-body">
+												<strong>Gift:</strong> No<br>
+												<strong>Express Delivery:</strong> Yes<br>
+												<strong>Insurance:</strong> No<br>
+												<strong>Coupon:</strong> No<br>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12 col-md-3 col-lg-4">
+										<div class="panel panel-default height">
+											<div class="panel-heading">Detail Address</div>
+											<div class="panel-body">
+												<strong><?php echo $userInfo['firstname'].' '.$userInfo['lastname']; ?>:</strong><br>
+												<?php  echo $address[0]; ?><br>
+												<?php  echo $address[1]; ?><br>
+												<?php  echo $address[2]; ?><br>	
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h3 class="text-center" style="font-size: 36px;"><strong>Order summary</strong></h3>
+									</div>
+									<div class="panel-body">
+										<div class="table-responsive">
+											<table class="table table-condensed">
+												<thead>
+													<tr>
+														<td><strong>Item Name</strong></td>
+														<td class="text-center"><strong>Item Price</strong></td>
+														<td class="text-center"><strong>Item Quantity</strong></td>
+														<td class="text-right"><strong>Total</strong></td>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td><?php echo $detailInfo['detailType']; ?></td>
+														<td class="text-center"><?php echo $price; ?></td>
+														<td class="text-center"><?php echo $qty; ?></td>
+														<td class="text-right"><?php echo $total; ?></td>
+													</tr>
+													<tr>
+														<td class="highrow"></td>
+														<td class="highrow"></td>
+														<td class="highrow text-center"><strong>Subtotal</strong></td>
+														<td class="highrow text-right"><?php echo $total; ?></td>
+													</tr>
+													<tr>
+														<td class="emptyrow"><i class="fa fa-barcode iconbig"></i></td>
+														<td class="emptyrow"></td>
+														<td class="emptyrow text-center"><strong>Total</strong></td>
+														<td class="emptyrow text-right"><?php echo '$'.$finalPrice; ?></td>
+													</tr>
+													<tr>
+														<td class="emptyrow"></td>
+														<td class="emptyrow"></td>
+														<td colspan="2">														
+															<?php
+																// Car Wash Button
+																if($detailInfo['detailType'] == 'Car Wash and Wax')
+																{
+															?>
+																	<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+																		<input type="hidden" name="cmd" value="_s-xclick">
+																		<input type="hidden" name="hosted_button_id" value="B488FMP22QSQU">
+																		<input type="hidden" name="quantity" value="<?php echo $qty; ?>">
+																		<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" id="buyButton" alt="PayPal - The safer, easier way to pay online!">
+																		<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+																	</form>
+															<?php
+																}
+																
+																//Exterior Detail Button
+																if($detailInfo['detailType'] == 'Exterior Detail')
+																{
+															?>	
+																	<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+																		<input type="hidden" name="cmd" value="_s-xclick">
+																		<input type="hidden" name="hosted_button_id" value="KJ592RVNLPH4E">
+																		<input type="hidden" name="quantity" value="<?php echo $qty; ?>">
+																		<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" id="buyButton" alt="PayPal - The safer, easier way to pay online!">
+																		<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+																	</form>
+															<?php
+																}
+																
+																//Interior Detail Button
+																if($detailInfo['detailType'] == 'Interior Detail')
+																{
+															?>
+																	<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+																		<input type="hidden" name="cmd" value="_s-xclick">
+																		<input type="hidden" name="hosted_button_id" value="9W3XBCL2N2WDW">
+																		<input type="hidden" name="quantity" value="<?php echo $qty; ?>">
+																		<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" id="buyButton" alt="PayPal - The safer, easier way to pay online!">
+																		<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+																	</form>
+															<?php 
+																}
+																
+																//Express Detail
+																if($detailInfo['detailType'] == 'BMD Express Detail')
+																{
+															?>	
+																	<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+																		<input type="hidden" name="cmd" value="_s-xclick">
+																		<input type="hidden" name="hosted_button_id" value="DP8CPNMBRX636">
+																		<input type="hidden" name="quantity" value="<?php echo $qty; ?>">
+																		<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" id="buyButton" alt="PayPal - The safer, easier way to pay online!">
+																		<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+																	</form>
+															<?php		
+																}
+																
+																//Total Detail
+																if($detailInfo['detailType'] == 'BMD Total Detail')
+																{
+															?>
+																	<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+																		<input type="hidden" name="cmd" value="_s-xclick">
+																		<input type="hidden" name="hosted_button_id" value="BX6WMSNWZH2EU">
+																		<input type="hidden" name="quantity" value="<?php echo $qty; ?>">
+																		<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" id="buyButton" alt="PayPal - The safer, easier way to pay online!">
+																		<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+																	</form>
+															<?php
+																}
+																
+																//Carpet Shampoo
+																if($detailInfo['detailType'] == 'Carpet Shampoo')
+																{
+															?>
+																	<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+																		<input type="hidden" name="cmd" value="_s-xclick">
+																		<input type="hidden" name="hosted_button_id" value="T6MKKSFLSK5TL">
+																		<input type="hidden" name="quantity" value="<?php echo $qty; ?>">
+																		<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" id="buyButton" alt="PayPal - The safer, easier way to pay online!">
+																		<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+																	</form>
+															<?php
+																}
+																
+																//Heatlight Restoration
+																if($detailInfo['detailType'] == 'Headlight Restoration')
+																{
+															?>
+																	<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+																		<input type="hidden" name="cmd" value="_s-xclick">
+																		<input type="hidden" name="hosted_button_id" value="KYAFS332FLJCS">
+																		<input type="hidden" name="quantity" value="<?php echo $qty; ?>">
+																		<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" id="buyButton" alt="PayPal - The safer, easier way to pay online!">
+																		<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+																	</form>
+															<?php
+																}
+																
+																//Engine Cleaning
+																if($detailInfo['detailType'] == 'Engine Cleaning')
+																{
+															?>	
+																	<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+																		<input type="hidden" name="cmd" value="_s-xclick">
+																		<input type="hidden" name="hosted_button_id" value="CEY6RF4HDNG4Q">
+																		<input type="hidden" name="quantity" value="<?php echo $qty; ?>">
+																		<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" id="buyButton" alt="PayPal - The safer, easier way to pay online!">
+																		<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+																	</form>
+															<?php								
+																}
+															?>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <div class="text-center">
+                <h1>Follow us</h1>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 text-center v-center" style="font-size: 39pt;">
+                    <a href="#"><span class="avatar"><i class="fa fa-google-plus"></i></span></a>
+                    <a href="#"><span class="avatar"><i class="fa fa-linkedin"></i></span></a>
+                    <a href="#"><span class="avatar"><i class="fa fa-facebook"></i></span></a>
+                    <a href="#"><span class="avatar"><i class="fa fa-github"></i></span></a>
+                </div>
+
+            </div>
+            <!-- /.row -->
+
+        </div>
+        <!-- /#page-wrapper -->
+    </div> 
+    <script>
+    		$("#buyButton").on( 'click', function () {
+    			var id = $('#purchaseId').html();
+				$.ajax({
+					type: 'post',
+					url: 'set.php',
+					data: {
+						source1: id,
+						source2: id
+					},
+					success: function( data ) {
+						console.log( data );
+					}
+				});
+			});		
+    </script>   
+</body>
+</html>

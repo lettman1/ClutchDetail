@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		<div id="to" style="display: none;"><?php echo $urlTo; ?></div>
+		<script type="text/javascript">
+			var toDiv = document.getElementById('to');
+			
+			window.location.replace(toDiv.innerHTML);
+		</script>
+	</body>
+</html>

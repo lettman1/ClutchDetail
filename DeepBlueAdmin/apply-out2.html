@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>How We Work</title>
+
+		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/local.css" />
+
+		<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../DeepBlueAdmin/fancyBox-master/source/jquery.fancybox.js"></script>
+    	<link rel="stylesheet" type="text/css" href="../DeepBlueAdmin/fancyBox-master/source/jquery.fancybox.css" media="screen" />
+
+		<style>
+/*			img {
+				filter: gray;*/ /* IE6-9 */
+/*				-webkit-filter: grayscale(1); *//* Google Chrome, Safari 6+ & Opera 15+ */
+/*				-webkit-box-shadow: 0px 2px 6px 2px rgba(0,0,0,0.75);
+				-moz-box-shadow: 0px 2px 6px 2px rgba(0,0,0,0.75);
+				box-shadow: 0px 2px 6px 2px rgba(0,0,0,0.75);
+				margin-bottom: 20px;
+			}
+			img:hover {
+				filter: none;*/ /* IE6-9 */
+/*				-webkit-filter: grayscale(0); */ /* Google Chrome, Safari 6+ & Opera 15+ */
+/*			} */
+
+			body
+			{
+				margin-top: 42px;
+			}
+			
+			#wrapper
+			{
+				padding: 0;
+			}
+
+			.jumbotron
+			{
+				background-image: url('../images/use-banner.jpg');
+				height: 475px;
+			}
+		
+			.fit
+			{
+				width: 93%;
+				margin: 0px auto;
+			}
+			
+			.navbar
+			{
+				margin-bottom: 0px;
+			}
+
+			#hero
+			{
+				position: relative;
+				left: 0px;
+				top: 10px;
+				width: 100%;
+				height:80%;
+				overflow: hidden;
+				margin: 0px auto;
+/* 
+				-webkit-box-shadow: 0px 0px 8px 2px #000000;
+       			-moz-box-shadow: 0px 0px 8px 2px #000000;
+            	box-shadow: 0px 0px 8px 2px #000000;
+ */
+			}
+			
+			.navbar-center
+			{
+				margin-left: 4%;
+			}
+			
+			.nav li
+			{
+				margin-left: 40px;
+			}
+			
+			.dropdown-menu li
+			{
+				margin-left: 0;
+			}
+			
+			.panel-body a:hover
+			{
+				color: #555555;
+			}
+			
+			.list-group-item :hover
+			{
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		 <div id="wrapper">
+		 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		 		<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="../index.php">Clutch</a>
+				</div>
+				<div class="collapse navbar-collapse navbar-ex1-collapse">
+					<ul class="nav navbar-nav navbar-center navbar-user">
+						<li>
+							<a href="work-out2.html">
+								How We Work
+							</a	>
+						</li>
+						<li>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+								Detailers<b class="caret"></b>
+							</a	>
+							<ul class="dropdown-menu">
+								<li class="message-preview">
+									<a href="">Apply to be a Detailer</a>
+								</li>
+								<li class="divider"></li>
+								<li class="message-preview">
+									<a href="../php/see-all-detailers.php">See Our Detailers</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="prices-out2.html">
+								Prices
+							</a>
+						</li>
+						<li>
+							<a href="commercial-services.html">
+								Commercial Services
+							</a>	
+						</li>
+						<li>
+							<a href="../php/contact-out.php">
+								Contact
+							</a	>
+						</li>
+						<li>
+							<a href="pics-out2.html">
+								Pictures
+							</a	>
+						</li>
+						<li>
+<!-- 							<a href="#signin-out" id="signin" class="iframe">Sign-In</a> -->
+							<a href="signin-out2.html">Sign-In</a>
+						</li>
+					</ul>
+				</div>
+		 	</nav>
+		 	<div id="hero">
+		 		<div class="jumbotron">
+		 			<div id="jumbo">
+		 				<h1 style="margin-top: 0;">Mobile Details</h1>
+		 				<p>We offer details on the go! You can order a clean for your car while home or at work.</p>
+		 				<p><a href="#service-request-out" id="btnRequest" class="iframe btn-primary btn-lg">Request A Detail</a></p>
+		 			</div>
+		 		</div>
+		 	</div>
+		 	<iframe src="service-request-out.html" id="service-request-out" style="display: none; width: 900px; height: 800px;"></iframe>
+		 	<iframe src="signin-out2.html" id="signin-out" style="display: none; width: 700px; height: 600px;"></iframe>
+		 	<div class="row fit">
+		 		<div class="col-lg-12 text-center">
+		 			<h1>Apply to become a <em>Clutch</em> detailer</h1>
+		 		</div>
+		 	</div>		
+		 	<div class="row fit">
+		 		<div class="col-lg-8">
+		 			<div class="panel panel-info">
+		 				<div class="panel-heading">Got what it takes?</div>
+		 				<div class="panel-body" style="padding-bottom: 15px;">
+		 					Being a <em>Clutch</em> detailer is a very important position.
+		 					We take our customers happiness very seriously and will not stand
+		 					for service that is not up to our standards. We have a 3 strike
+		 					policy. <a>See our terms and conditions</a> for the full contractual
+		 					agreement between you and <em>Clutch</em>. We stand by our contract
+		 					and will do our best to fulfill the contract and ask that you
+		 					do too.
+		 				</div>
+		 			</div>
+		 		</div>
+		 		
+		 		<div class="col-lg-4">
+		 			<div class="panel panel-info">
+		 				<div class="panel-heading">Grow</div>
+		 				<div class="panel-body">
+		 					At <em>Clutch</em> there are tons of ways to get noticed. We have
+		 					a newsletter to advertise the companies with the best reviews. 
+		 					We also hold a contest for a detailer to get free advertising.
+		 				</div>
+		 			</div>
+		 		</div>
+		 	</div>
+		 	<div class="row fit">
+		 		<form method="POST" action="../php/add-user-out.php">
+		 			<div class="col-lg-8 text-center">
+		 				<div class="panel panel-info">
+		 					<div class="panel-heading">Application Form</div>
+		 					<div class="panel-body" style="padding-bottom: 15px;">
+		 						<div class="row" style="margin-bottom: 20px;">
+		 							<label for="firstname" class="col-sm-2">
+		 								First Name:
+		 							</label>
+		 							<div class="col-sm-9">
+		 								<input type="text" class="form-control" name="firstname" placeholder="First Name"/>
+		 							</div>
+		 							<div class="col-sm-1">
+		 								<i class="fa fa-lock fa-2x"></i>
+		 							</div>
+		 						</div>
+		 						<div class="row" style="margin-bottom: 20px;">
+		 							<label for="firstname" class="col-sm-2">
+		 								Last Name:
+		 							</label>
+		 							<div class="col-sm-9">
+		 								<input type="text" class="form-control" name="lastname" placeholder="Last Name"/>
+		 							</div>
+		 							<div class="col-sm-1">
+		 								<i class="fa fa-lock fa-2x"></i>
+		 							</div>
+		 						</div>
+		 						<div class="row" style="margin-bottom: 20px;">
+		 							<label for="firstname" class="col-sm-2">
+		 								Company Name:
+		 							</label>
+		 							<div class="col-sm-9">
+		 								<input type="text" class="form-control" name="addUsername" placeholder="Company Name"/>
+		 							</div>
+		 							<div class="col-sm-1">
+		 								<i class="fa fa-lock fa-2x"></i>
+		 							</div>
+		 						</div>
+		 						<div class="row" style="margin-bottom: 20px;">
+		 							<label for="firstname" class="col-sm-2">
+		 								Email:
+		 							</label>
+		 							<div class="col-sm-9">
+		 								<input type="text" class="form-control" name="email" placeholder="Email"/>
+		 							</div>
+		 							<div class="col-sm-1">
+		 								<i class="fa fa-lock fa-2x"></i>
+		 							</div>
+		 						</div>
+		 						<div class="row" style="margin-bottom: 20px;">
+		 							<label for="firstname" class="col-sm-2">
+		 								Password:
+		 							</label>
+		 							<div class="col-sm-9">
+		 								<input type="password" class="form-control" name="addPassword" placeholder="Password"/>
+		 							</div>
+		 							<div class="col-sm-1">
+		 								<i class="fa fa-lock fa-2x"></i>
+		 							</div>
+		 						</div>
+		 						<div class="row" style="margin-bottom: 20px;">
+		 							<label for="firstname" class="col-sm-2">
+		 								Re-Password:
+		 							</label>
+		 							<div class="col-sm-9">
+		 								<input type="password" class="form-control" name="addPassword2" placeholder="Password"/>
+		 							</div>
+		 							<div class="col-sm-1">
+		 								<i class="fa fa-lock fa-2x"></i>
+		 							</div>
+		 						</div>
+		 						<div class="row" style="margin-bottom: 20px;">
+		 							<label for="firstname" class="col-sm-2">
+		 								Address:
+		 							</label>
+		 							<div class="col-sm-9">
+		 								<input type="text" class="form-control" name="address" placeholder="1234 Street st., City, State, Zipcode"/>
+		 							</div>
+		 							<div class="col-sm-1">
+		 								<i class="fa fa-lock fa-2x"></i>
+		 							</div>
+		 						</div>
+		 						<div class="row" style="margin-bottom: 20px;">
+									<div class="col-sm-12">
+										<label>
+											<input type="checkbox" name="agree"> I hereby accept the terms and conditions for using this site
+										</label>
+									</div>	
+								</div>
+								<div class="row" style="margin-bottom: 20px;">
+									<div class="col-sm-12">
+										<input type="hidden" name="type" value="servicer">
+										<input type="submit" name="submit" value="Submit Application" class="btn btn-info">
+									</div>	
+								</div>
+		 					</div>
+		 				</div>
+		 			</div>
+		 		</form>
+		 		<div class="col-lg-4">
+		 			<div class="panel panel-default">
+		 				<div class="panel-heading">Dedication</div>
+		 				<div class="panel-body">
+		 					<em>Clutch</em> is dedicated to being the best at making our
+		 					customers look good. We depend on you to give each customer
+		 					special care. We will work with you in order to make the experience
+		 					excellent. If there is anything we can do to help make your 
+		 					experience working with us better. let us know. We take care 
+		 					of each of our detailers. We demand a lot from you and from 
+		 					ourselves to give you every tool needed to be effective. We provide
+		 					vehicles, tools, and time management tools in order to make sure 
+		 					that you can manage each job to be done that day. We offer full 
+		 					insurance on our vehicles and other products that we have. aom 
+		 					ad apodm wpamd amfoaf p
+		 				</div>
+		 			</div>
+		 		</div>
+		 	</div>
+		 	<div class="row fit">
+		 		<div class="col-lg-12 text-center">
+		 			<h1>Look good. Feel good.</h1>
+		 		</div>
+		 	</div>
+		 	<div class="row fit" style="margin-bottom: 25px;">
+		 		<div class="col-lg-2"></div>
+		 		<div class="col-lg-8">
+		 			<img src="../images/dare-to-dream.jpg" width="100%" height="300"/>
+		 			We believe that the first step to being happy is liking the way you 
+		 			look. As humans we are social creatures and that means that the way
+		 			others look at you is a part of self-esteem. When you get a detail
+		 			from <em>Clutch Detailers</em> you know that wherever you go you will
+		 			stand out because of the level of detail that goes into each of our
+		 			services. We hand pick every detailer on our roster and routinely do
+		 			checks to make sure that they are up to <em>Clutch</em> standards. We
+		 			don't tollerate anything but the best for our customers because you
+		 			deserve the best. Getting your car cleaned doesn't need to be another
+		 			hassle or errand in your day that is why we have made it as easy as
+		 			clicking a button. We can have someone to you within 1 hour to get you
+		 			the best and most convenient anyone has to offer.
+		 		</div>
+		 	</div>
+		 	
+		 	<div class="row fit">
+		 		<div class="col-lg-8">
+		 			<div class="panel panel-default">
+		 				<div class="panel-heading">The Good Man Promise</div>
+		 				<div class="panel-body">
+		 					It's the best quality of service that your vehicle has ever gotten
+		 					anywhere. Every detailer we work with is hand inspected
+		 					by experts on car detailing. We make sure that they will give
+		 					you the best service out here and if you are not satisfied 
+		 					send us a message. We will get back to you within 24 hours. You
+		 					can request a detail and we will come to you, or you can see our
+		 					detailers <a href="../php/see-all-detailers.php">profiles</a> and choose to get a specific
+		 					detailer. Every detailer we employ has the ability to accomodate
+		 					you with a mobile detail. When you order with us we give you the
+		 					same service for the best price possible.
+		 				</div>
+		 			</div>
+		 		</div>
+		 		<div class="col-lg-4">
+		 			<div class="panel panel-info">
+		 				<div class="panel-heading">Fleets & Business</div>
+		 				<div class="panel-body">
+		 					We also cater to fleets and businesses. You can make orders
+		 					as large as you need to. We will come to your business at the time
+		 					set in your request and clean your fleet. You never have to worry 
+		 					about getting you fleet clean again, and we can be there within
+		 					1 hour of the order! 
+		 				</div>
+		 			</div>
+		 		</div>
+		 	</div>
+		 	<div class="row fit" style="margin-bottom: 25px;">
+		 		<div class="col-lg-12">
+		 			<div class="col-lg-2">
+		 				<img src="../images/baby_on_board_1.jpg" width="100%" style="width: 100%;"/>
+		 			</div>
+		 			<div class="col-lg-8">
+		 				<h3>Save on your next car wash!</h3>
+		 				We believe that everyone should look good especially when traveling and
+		 				making a first impression. So we made a way for you to look great at 
+		 				an affordable price. When detailers see this on your rear window you will
+		 				get a 70% off coupon for the next car wash.
+		 			</div>	
+		 		</div>
+		 	</div>
+		 	<div class="row fit" style="margin-bottom: 25px;">
+		 		<div class="col-lg-12">
+		 			<div class="col-lg-2">
+		 				<img src="../images/business-resolutions.jpg" width="100%" style="width: 100%;"/>
+		 			</div>
+		 			<div class="col-lg-8">
+		 				<h3>Be more productive!</h3>
+		 				Giving a detail worth getting takes time. Instead of having to wait at
+		 				a center or wasting precious time dropping off your car off, order a 
+		 				detail when you know you will be at work or home. This way you won't
+		 				have to waist your time. 
+		 			</div>	
+		 		</div>
+		 	</div>
+		 	<div class="row fit" style="margin-bottom: 25px;">
+		 		<div class="col-lg-12">
+		 			<div class="col-lg-2">
+		 				<img src="../images/clean-car.png" width="100%" style="width: 100%;"/>
+		 			</div>
+		 			<div class="col-lg-8">
+		 				<h3>3 day clean guarantee!</h3>
+		 				We're <em>Clutch</em> and we want you to look good. That's why we have 
+		 				a 3 day guarantee. If the weather messes up your clean we will wash your
+		 				car for free so you don't have to worry about the weather messing up your
+		 				clean.
+		 			</div>	
+		 		</div>
+		 	</div>
+		 	<div class="row fit">
+		 		<div class="col-lg-12 text-center">
+		 			<p>
+		 				The Best Detailers For The Best Details<br />
+		 				571-449-1077<br />
+		 				contact@website.com
+		 			</p>
+		 		</div>
+		 	</div>
+		 </div>
+		 <script type="text/javascript">
+		 	$(document).ready(function(){
+    			$("#jumbo").hide(0).delay(300).fadeIn(3000);
+			});
+			
+			function dropdown(which)
+			{
+				var drop = "#"+which;
+				
+				if($(drop).is(':visible'))
+				{
+					$(drop).hide();
+				} else {
+					$(drop).show();
+				}	
+			}
+			
+			$(function() {
+				$("#btnRequest").fancybox({
+					'onStart': function() { $("#service-request-out").css("display","block"); },            
+					'onClosed': function() { $("#service-request-out").css("display","none"); }
+				});
+			});
+		 </script>
+	</body>
+</html>	

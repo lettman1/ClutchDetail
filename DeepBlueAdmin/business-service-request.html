@@ -1,0 +1,662 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Request</title>
+
+	<script type="text/javascript" charset="utf-8" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../DeepBlueAdmin/fancyBox-master/source/jquery.fancybox.js"></script>
+    <link rel="stylesheet" type="text/css" href="../DeepBlueAdmin/fancyBox-master/source/jquery.fancybox.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/local.css" />
+
+<!--     <script type="text/javascript" src="../js/jquery-1.10.2.min.js"></script> -->
+    <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>   
+
+      <style>
+
+        div {
+            padding-bottom:20px;
+        }
+        
+        #ha
+        {
+        	z-index: 100;
+        }
+
+		.panel-body
+		{
+			padding: 15px;
+		}
+		
+		.sui-grid
+		{
+			border-top: medium none;
+			border-color: #E7E7E7;
+			color: #555555;
+		}
+		
+		.sui-grid .sui-gridheader
+		{
+			border-bottom: 2px solid #4FA7EF;
+			border-top: 1px solid #E7E7E7;
+			color: #333333;
+			padding-bottom: 0;
+		}
+		
+		.sui-grid .sui-headercell
+		{
+			border-left: 1px solid #E7E7E7;
+			border-style: none none none solid;
+			border-top: 0 solid #E7E7E7;
+			background-color: #FFFFFF;
+		}
+		
+		.sui-grid .sui-gridcontent
+		{
+			background-color: #FFFFFF;
+		}
+		
+		.sui-grid .sui-alt-row
+		{
+			background: none repeat scroll 0 0;
+			background-color: #F7F7F7;
+		}
+		
+		.sui-grid .sui-cell
+		{
+			border-color: #E7E7E7;
+		}
+		
+		.sui-grid-core
+		{
+			border-collapse: collapse;
+			border-style: none solid solid;
+			border-width: 1px;
+			height: auto;
+			outline: 0 none;
+			font-size: 14px;
+			font-family: Arial: Helvetica, sans-serif; 
+		}
+		
+		.sui-grid-core .sui-gridheader
+		{
+			background-attachment: scroll;
+			background-position: 0 0; 
+			background-repeat: repeat-x;
+			overflow-x: hidden;
+		}
+		
+		.sui-grid-core .sui-non-selectable
+		{
+			-webkit-user-select: none;
+		}
+		
+		.sui-grid-core .sui-table
+		{
+			border: 0 none;
+			table-layout: fixed;
+			width: 100%;
+			border-spacing: 0;
+			border-collapse: collapse;
+			empty-cells: show;
+		}
+		
+		.sui-grid-core .sui-gridheader .sui-headercell
+		{
+			border-width: 0 0 0 1px;
+		}
+		
+		.sui-grid-core .sui-headercell
+		{
+			border-collapse: collapse;
+			overflow: hidden;
+			text-align: left;
+			text-overflow: ellipsis;
+			font-size: 1.1em;
+			padding: .518em;
+			white-space: normal;
+			font-weight: 700;
+		}
+		
+		.sui-grid-core tr th:first-child
+		{
+			border-left-style: none;
+		}
+		
+		.sui-grid-core .sui-gridcontent
+		{
+			outline: medium none;
+			overflow: hidden;
+		}
+		
+		.sui-grid-core tr td:first-child
+		{
+			border-left-style: none;
+			border-left-width: 0;
+		}
+		
+		.sui-grid-core .sui-cell
+		{
+			border-collapse: collapse;
+			border-style: solid;
+			border-width: 0 0 1px 1px;
+			display: table-cell;
+			overflow: hidden;
+			padding: .6em;
+			vertical-align: middle;
+			white-space: normal;
+			width: auto;
+		}
+		
+		.sui-cell
+		{
+			font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
+		}
+		
+		table
+		{
+			max-width: 100%;
+			background-color: transparent;
+			display: table;
+			border-spacing: 2px;
+			border-color: #CCCCCC;
+		}
+		
+		colgroup
+		{
+			display: table-column-group;
+		}
+		
+		col
+		{
+			display: table-column;
+		}
+		
+		thead
+		{
+			display: table-header-group;
+			vertical-align: middle;
+			border-color: inherit;
+		}
+		
+		tr
+		{
+			display: table-row;
+			vertical-align: inherit;
+			border-color: inherit;
+		}
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="navbar-header" style="padding-bottom: 0;">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Clutch Details</a>
+            </div>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li><a href="../index.php"><i class="fa fa-bullseye"></i> Dashboard</a></li>
+                    <li class="active"><a href="business-service-request.php"><i class="fa fa-list-ol"></i> Request Detail</a></li>    
+                </ul>
+                <ul class="nav navbar-nav navbar-right navbar-user">
+                    <li class="dropdown messages-dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> Messages <span class="badge"><?php echo $numberOfMessages; ?></span> <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-header"><?php echo $numberOfMessages; ?> New Messages</li>
+                            <li class="divider"></li>
+                            <li><a href="message-list.php">Go to Inbox <span class="badge"><?php echo $numberOfMessages; ?></span></a></li>
+                        </ul>
+                    </li>
+                     <li class="dropdown user-dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $_SESSION['user']->getUsername(); ?><b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="settings.php"><i class="fa fa-gear"></i> Settings</a></li>
+                            <li class="divider"></li>
+                            <li><a href="logout.php"><i class="fa fa-power-off"></i> Log Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+       <div>
+       	<?php
+       		if(isset($serviceRequested) && $serviceRequested)
+       		{
+       	?>
+       			<div class="alert alert-success alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    Thank you! You have successfully requested a detail.
+                </div>
+       	<?php		
+       		} else if(isset($serviceRequested) && !$serviceRequested) {
+       	?>
+       			<div class="alert alert-danger alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    Sorry Something Went wrong
+                </div>
+       	<?php
+       		}
+       		
+       		if(isset($error))
+       		{
+       	?>
+       			<div class="alert alert-danger alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <?php echo $error; ?>
+                </div>
+       	<?php		
+       		}
+       	?>
+        <div class="row text-center">
+            <h2>Detail Request</h2>
+            <a href="#divSaved" id="btnSaved">Use A Saved Request</a>
+        </div>
+        <div id="divSaved" class="row text-center" style="display:none">
+        	<div class="col-md-12">
+        		<div class="panel panel-primary">
+                	<div class="panel-heading">
+                		<h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> My Saved Requests</h3>
+                    </div>
+                    <div class="panel-body">
+						<div id="shieldui-grid1" class="sui-grid sui-grid-core">
+							<form method="POST" action="index.php">
+								<div class="sui-gridheader">
+									<table class="sui-table sui-non-selectable">
+										<colgroup>
+											<col>
+											<col>
+											<col>
+											<col>
+										</colgroup>
+										<thead>
+											<tr class="sui-columnheader">
+												<th>
+													Choose
+												</th>
+												<th class="sui-headercell">
+													Vehicle Type
+												</th>
+												<th class="sui-headercell">
+													Detail Type
+												</th>
+												<th class="sui-headercell">
+													# Of Vehicles
+												</th>
+											</tr>
+										</thead>
+									</table>
+								</div>
+								<div class="sui-gridcontent">
+									<table class="sui-table sui-hover sui-selectable">
+										<colgroup>
+											<col>
+											<col>
+											<col>
+											<col>
+										</colgroup>
+										<tbody>
+											<?php
+												for($i = 0; $i < $numSavedCars; $i++)
+												{
+													if($i%2 == 0)
+													{
+														$rowValue = "sui-row";
+													} else {
+														$rowValue = "sui-alt-row";
+													}
+											?>
+													<tr class="<?php echo $rowValue; ?>">
+														<td class="sui-cell">
+															<a href="#" onclick="manualDataEntry('<?php echo $savedCars['vehicleType'][$i]; ?>', '<?php echo $savedCars['detailType'][$i]; ?>', <?php echo $savedCars['numberOfVehicles'][$i]; ?>, event)">Click Here</a>
+														</td>
+														<td class="sui-cell">
+															<?php echo $savedCars['vehicleType'][$i]; ?>
+														</td>
+														<td class="sui-cell">
+															<?php echo $savedCars['detailType'][$i]; ?>
+														</td>
+														<td class="sui-cell">
+															<?php echo $savedCars['numberOfVehicles'][$i]; ?>
+														</td>
+													</tr>
+											<?php
+												}
+											?>
+										</tbody>
+									</table>
+	                            </div>
+                            </form>
+                        </div>
+                    </div>	
+        		</div>
+			</div>
+		</div>
+        <form method="POST" action="business-service-request.php">
+	        <div>
+	            <label for="make" class="col-md-2">
+	                Vehicle Type:
+	            </label>
+	            <div class="col-md-9">
+	                <select name="vehicleType" id="vehicleType" class="form-control">
+	                    <option>--Please Select--</option>
+	                    <option>Car</option>
+	                    <option>Commercial Truck</option>
+	                    <option>Minivan</option>
+	                    <option>Pick-Up Truck</option>
+	                    <option>SUV</option>
+	                    <option>Truck</option>
+	                    <option>Van</option>
+	                </select>
+	            </div>
+	            <div class="col-md-1">
+	                <i class="fa fa-lock fa-2x"></i>
+	            </div>
+	        </div>        
+	        <div>
+	            <label for="model" class="col-md-2">
+	                Type of Detail:
+	            </label>
+	            <div class="col-md-9">
+	                <select name="detailType" id="detailType" class="form-control">
+	                    <option>--Please Select--</option>
+	                    <option>Car Wash and Wax</option>
+	                    <option>Interior Detail</option>
+	                    <option>Exterior Detail</option>
+	                    <option>BMD Express Detail</option>
+	                    <option>BMD Total Detail</option>
+	                    <option>Carpet Shampoo</option>
+	                    <option>Headlight Restoration</option>
+	                    <option>Engine Cleaning</option>
+	                </select>
+	            </div>
+	             <div class="col-md-1">
+	                <i class="fa fa-lock fa-2x"></i>
+	            </div>
+	        </div>
+	        <div>
+	            <label for="emailaddress" class="col-md-2">
+	                Number of Vehicles:
+	            </label>
+	            <div class="col-md-9">
+	                <input type="text" class="form-control" id="vehicleNumbers" name="vehicleNumbers" placeholder="Enter Number of Vehicles">
+	            </div>
+	        </div>
+	        <div>
+	            <label for="date" class="col-md-2">
+	                Date Of Service:
+	            </label>
+	            <div class="col-md-3">
+	                <select name="month" id="month" class="form-control">
+	                    <option>--Month--</option>
+	                    <option value="1">January</option>
+						<option value="2">February</option>
+						<option value="3">March</option>
+						<option value="4">April</option>
+						<option value="5">May</option>
+						<option value="6">June</option>
+						<option value="7">July</option>
+						<option value="8">August</option>
+						<option value="9">September</option>
+						<option value="10">October</option>
+						<option value="11">November</option>
+						<option value="12">December</option>
+	                </select>
+	            </div>
+	            <div class="col-md-3">
+	                <select name="day" id="day" class="form-control">
+	                	<option>---Day---</option>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+						<option>6</option>
+						<option>7</option>
+						<option>8</option>
+						<option>9</option>
+						<option>10</option>
+						<option>11</option>
+						<option>12</option>
+						<option>13</option>
+						<option>14</option>
+						<option>15</option>
+						<option>16</option>
+						<option>17</option>
+						<option>19</option>
+						<option>20</option>
+						<option>21</option>
+						<option>22</option>
+						<option>23</option>
+						<option>24</option>
+						<option>25</option>
+						<option>26</option>
+						<option>27</option>
+						<option>28</option>
+						<option>29</option>
+						<option>30</option>
+						<option>31</option>
+					</select>
+				</div>	
+				<div class="col-md-3">	
+					<select name="year" id="year" class="form-control">
+						<option>---Year---</option>
+						<option>2014</option>
+						<option>2015</option>
+						<option>2016</option>
+						<option>2017</option>
+						<option>2018</option>
+					</select>
+	            </div>
+	             <div class="col-md-1">
+	                <i class="fa fa-lock fa-2x"></i>
+	            </div>
+	        </div>
+	        <div>
+	            <label for="date" class="col-md-2">
+	                Time Of Service:
+	            </label>
+	            <div class="col-md-3">
+	                <select name="hour" id="hour" class="form-control">
+	                    <option>--Hour--</option>
+	                    <option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+						<option>6</option>
+						<option>7</option>
+						<option>8</option>
+						<option>9</option>
+						<option>10</option>
+						<option>11</option>
+						<option>12</option>
+	                </select>
+	            </div>
+	            <div class="col-md-3">
+	                <select name="minute" id="minute" class="form-control">
+	                	<option>---Minute---</option>
+	                	<option>00</option>
+						<option>10</option>
+						<option>20</option>
+						<option>30</option>
+						<option>40</option>
+						<option>50</option>
+					</select>
+				</div>	
+				<div class="col-md-3">	
+					<select name="frame" id="frame" class="form-control">
+						<option>---Frame---</option>
+						<option>AM</option>
+						<option>PM</option>
+					</select>
+	            </div>
+	             <div class="col-md-1">
+	                <i class="fa fa-lock fa-2x"></i>
+	            </div>
+	        </div>
+	        <div>
+	            <div class="col-md-2">
+	            </div>
+	            <div class="col-md-10">
+	                <label>
+	                    <input type="checkbox" name="agree"> I hereby accept the terms and conditions for using this site
+	                </label>
+	                    <input type="hidden" name="userId" value="<?php echo $_SESSION['user']->getUserId(); ?>" />
+	                <br />
+	                <label>
+	                	<input type="checkbox" name="save"> Save This Car
+	                </label>
+	            </div>
+	        </div>
+	        <div class="row">
+	            <div class="col-md-2">
+	            </div>
+	            <div class="col-md-10">
+	            	<input type="submit" name="submit" value="Request Service" class="btn btn-info">
+	            </div>
+	        </div>
+	    </form>    
+	    </div>  
+    </div>
+	<script type="text/javascript">
+		$(function() {
+    		$("#btnSaved").fancybox({
+        		'onStart': function() { $("#divSaved").css("display","block"); },            
+        		'onClosed': function() { $("#divSaved").css("display","none"); }
+    		});
+		});	
+			
+		$('#month').change(function(){
+			changeDay($(this).val());
+		});
+			
+		function manualDataEntry(vType, dType, numOfVehicles, e)
+		{
+			e.preventDefault();
+			
+			switch(vType)
+			{
+				case 'Car':
+					$('#vehicleType>option:eq(1)').prop('selected', true);
+					break;
+				case 'Commercial Truck':
+					$('#vehicleType>option:eq(2)').prop('selected', true);
+					break;
+				case 'Minivan':
+					$('#vehicleType>option:eq(3)').prop('selected', true);
+					break;
+				case 'Pick-Up Truck':
+					$('#vehicleType>option:eq(4)').prop('selected', true);
+					break;
+				case 'SUV':
+					$('#vehicleType>option:eq(5)').prop('selected', true);
+					break;
+				case 'Truck':
+					$('#vehicleType>option:eq(6)').prop('selected', true);
+					break;
+				case 'Van':
+					$('#vehicleType>option:eq(7)').prop('selected', true);
+					break;		
+			}
+			
+			switch(dType)
+			{
+				case 'Car Wash and Wax':
+					$('#detailType>option:eq(1)').prop('selected', true);
+					break;
+				case 'Interior Detail':
+					$('#detailType>option:eq(2)').prop('selected', true);
+					break;
+				case 'Exterior Detail':
+					$('#detailType>option:eq(3)').prop('selected', true);
+					break;
+				case 'BMD Express Detail':
+					$('#detailType>option:eq(4)').prop('selected', true);
+					break;
+				case 'BMD Total Detail':
+					$('#detailType>option:eq(5)').prop('selected', true);
+					break;
+				case 'Carpet Shampoo':
+					$('#detailType>option:eq(6)').prop('selected', true);
+					break;
+				case 'Headlight Restoration':
+					$('#detailType>option:eq(7)').prop('selected', true);
+					break;	
+				case 'Engine Cleaning':
+					$('#detailType>option:eq(8)').prop('selected', true);
+					break;				
+			}
+			
+			$('#vehicleNumbers').val(numOfVehicles);
+			
+			parent.$.fancybox.close();
+		}
+			
+		function changeDay(month)
+		{
+			var dayOptions;
+			switch(month)
+			{
+				case '1':
+					setDays(31);
+					break;
+				case '2':
+					setDays(28);
+					break;
+				case '3':
+					setDays(31);
+					break;
+				case '4':
+					setDays(30);
+					break;
+				case '5':	
+					setDays(31)	
+					break;
+				case '6':
+					setDays(30);
+					break;
+				case '7':
+					setDays(31);
+					break;
+				case '8':
+					setDays(31);
+					break;
+				case '9':
+					setDays(30);
+					break;
+				case '10':
+					setDays(31);
+					break;
+				case '11':
+					setDays(30);
+					break;
+				case '12':
+					setDays(31);
+					break;									
+			}
+		}
+			
+		function setDays(numDays)
+		{
+			var dayOptions, i;
+			for(i = 1; i <= numDays; i++)
+			{
+				dayOptions += '<option>'+i+'</option>';
+			}
+			$('#day').html(dayOptions);
+		}
+	</script>
+
+</body>
+</html>

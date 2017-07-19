@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Request</title>
+
+    <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/local.css" />
+
+    <script type="text/javascript" src="../js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>  
+
+      <style>
+		body
+		{
+			margin-top: 0;
+		}
+		
+        div {
+            padding-bottom:20px;
+        }
+        
+        #wrapper
+        {
+        	padding-left: 0;
+        }
+        
+        #ha
+        {
+        	z-index: 100;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+    	
+       <div>
+       	<?php
+       		if(isset($serviceRequested) && $serviceRequested)
+       		{
+       	?>
+       		<!-- 
+	<div class="alert alert-success alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    Thank you! You have successfully requested a detail.
+                </div>
+ -->
+       	<?php		
+       		} else if(isset($serviceRequested) && !$serviceRequested) {
+       	?>
+       			<!-- 
+<div class="alert alert-danger alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    Sorry Something Went wrong
+                </div>
+ -->
+       	<?php
+       		}
+       		
+       		if(isset($error))
+       		{
+       	?>
+       			<!-- 
+<div class="alert alert-danger alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <?php echo $error; ?>
+                </div>
+ -->
+       	<?php		
+       		}
+       	?>
+        <div class="row text-center">
+            <h2>Detail Request</h2>
+            <a href="" target="_top">hard to view? Click here</a>
+        </div>
+        <br /><br />
+<!--         <form method="POST" action="../php/service-request-out.php" target="_top"> -->
+		<form method="POST" action="../php/service-request-out.php"> 
+	        <div class="row">
+	            <label for="make" class="col-sm-2">
+	                Make:
+	            </label>
+	            <div class="col-sm-9">
+	                <select name="make" id="make" class="form-control">
+	                    <option>--Please Select--</option>
+	                    <option>Acura</option>
+						<option>Audi</option>
+						<option>BMW</option>
+						<option>Buick</option>
+						<option>Cadillac</option>
+						<option>Chevy</option>
+						<option>Chrysler</option>
+						<option>Dodge</option>
+						<option>Fiat</option>
+						<option>Ford</option>
+						<option>GMC</option>
+						<option>Honda</option>
+						<option>Hummer</option>
+						<option>Hyundai</option>
+						<option>Infiniti</option>
+						<option>Jaguar</option>
+						<option>Jeep</option>
+						<option>Kia</option>
+						<option>Land Rover</option>
+						<option>Lexus</option>
+						<option>Lincoln</option>
+						<option>Mazda</option>
+						<option>Mercedes-Benz</option>
+						<option>Mini</option>
+						<option>Mitsubishi</option>
+						<option>Nissan</option>
+						<option>Oldsmobile</option>
+						<option>Pontiac</option>
+						<option>Porsche</option>
+						<option>Saturn</option>
+						<option>Scion</option>
+						<option>Smart</option>
+						<option>Subaru</option>
+						<option>Suzuki</option>
+						<option>Toyota</option>
+						<option>Volkswagon</option>
+						<option>Volvo</option>
+	                </select>
+	            </div>
+	            <div class="col-sm-1">
+	                <i class="fa fa-lock fa-2x"></i>
+	            </div>
+	        </div>        
+	        <div class="row">
+	            <label for="model" class="col-sm-2">
+	                Model:
+	            </label>
+	            <div class="col-sm-9">
+	                <select name="model" id="model" class="form-control">
+	                    <option>--Please Select--</option>
+	                </select>
+	            </div>
+	             <div class="col-sm-1">
+	                <i class="fa fa-lock fa-2x"></i>
+	            </div>
+	        </div>
+	        <div class="row">
+	            <label for="model" class="col-sm-2">
+	                Type of Detail:
+	            </label>
+	            <div class="col-sm-9">
+	                <select name="detailType" id="detailType" class="form-control">
+	                    <option>--Please Select--</option>
+	                    <option>Car Wash and Wax</option>
+	                    <option>Interior Detail</option>
+	                    <option>Exterior Detail</option>
+	                    <option>Clutch Express Detail</option>
+	                    <option>Clutch Total Detail</option>
+	                    <option>Carpet Shampoo</option>
+	                    <option>Headlight Restoration</option>
+	                    <option>Engine Cleaning</option>
+	                </select>
+	            </div>
+	             <div class="col-sm-1">
+	                <i class="fa fa-lock fa-2x"></i>
+	            </div>
+	        </div>
+	        <div class="row">
+	            <label for="emailaddress" class="col-sm-2">
+	                License Plate Number:
+	            </label>
+	            <div class="col-sm-9">
+	                <input type="text" class="form-control" id="vehicle" name="vehicle" placeholder="Enter Vehicle Number">
+	            </div>
+	            <div class="col-sm-1">
+	                <i class="fa fa-lock fa-2x"></i>
+	            </div>
+	        </div>
+	        <div class="row">
+	            <label for="date" class="col-sm-2">
+	                Date Of Service:
+	            </label>
+	            <div class="col-sm-3">
+	                <select name="month" id="month" class="form-control">
+	                    <option>--Month--</option>
+	                    <option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+						<option>6</option>
+						<option>7</option>
+						<option>8</option>
+						<option>9</option>
+						<option>10</option>
+						<option>11</option>
+						<option>12</option>
+	                </select>
+	            </div>
+	            <div class="col-sm-3">
+	                <select name="day" id="day" class="form-control">
+	                	<option>---Day---</option>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+						<option>6</option>
+						<option>7</option>
+						<option>8</option>
+						<option>9</option>
+						<option>10</option>
+						<option>11</option>
+						<option>12</option>
+						<option>13</option>
+						<option>14</option>
+						<option>15</option>
+						<option>16</option>
+						<option>17</option>
+						<option>19</option>
+						<option>20</option>
+						<option>21</option>
+						<option>22</option>
+						<option>23</option>
+						<option>24</option>
+						<option>25</option>
+						<option>26</option>
+						<option>27</option>
+						<option>28</option>
+						<option>29</option>
+						<option>30</option>
+						<option>31</option>
+					</select>
+				</div>	
+				<div class="col-sm-3">	
+					<select name="year" id="year" class="form-control">
+						<option>---Year---</option>
+						<option>2014</option>
+						<option>2015</option>
+						<option>2016</option>
+						<option>2017</option>
+						<option>2018</option>
+					</select>
+	            </div>
+	             <div class="col-sm-1">
+	                <i class="fa fa-lock fa-2x"></i>
+	            </div>
+	        </div>
+	        <div class="row">
+	            <label for="date" class="col-sm-2">
+	                Time Of Service:
+	            </label>
+	            <div class="col-sm-3">
+	                <select name="hour" id="hour" class="form-control">
+	                    <option>--Hour--</option>
+	                    <option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+						<option>6</option>
+						<option>7</option>
+						<option>8</option>
+						<option>9</option>
+						<option>10</option>
+						<option>11</option>
+						<option>12</option>
+	                </select>
+	            </div>
+	            <div class="col-sm-3">
+	                <select name="minute" id="minute" class="form-control">
+	                	<option>---Minute---</option>
+	                	<option>00</option>
+						<option>10</option>
+						<option>20</option>
+						<option>30</option>
+						<option>40</option>
+						<option>50</option>
+					</select>
+				</div>	
+				<div class="col-sm-3">	
+					<select name="frame" id="frame" class="form-control">
+						<option>---Frame---</option>
+						<option>AM</option>
+						<option>PM</option>
+					</select>
+	            </div>
+	             <div class="col-sm-1">
+	                <i class="fa fa-lock fa-2x"></i>
+	            </div>
+	        </div>
+	        <div class="row" style="padding-bottom: 0;">
+	            <label for="location" class="col-sm-2">
+	                Location Of Detail
+	            </label>
+	            <div class="col-sm-9">
+	                <input type="text" class="form-control" id="location" name="location" placeholder="1234 Corner street, City, State, Zipcode">
+	                <p class="help-block">
+	                    1234 Corner street, City, State, Zipcode
+	                </p>
+	            </div>
+	             <div class="col-sm-1">
+	                <i class="fa fa-lock fa-2x"></i>
+	            </div>
+	        </div>
+	        <div class="row">
+	            <label for="location" class="col-sm-2">
+	                Email
+	            </label>
+	            <div class="col-sm-9">
+	                <input type="text" class="form-control" id="email" name="email" placeholder="email address">
+	                <p class="help-block">
+	                    Why? So we can send confirmation & let you know when your vehicle is done. We wont send you anything else.
+	                </p>
+	            </div>
+	             <div class="col-sm-1">
+	                <i class="fa fa-lock fa-2x"></i>
+	            </div>
+	        </div>
+	        <div class="row">
+	            <div class="col-sm-2">
+	            </div>
+	            <div class="col-sm-10">
+	                <label>
+	                    <input type="checkbox" name="agree"> I hereby accept the terms and conditions for using this site
+	                </label>
+	                <br />
+	                    <input type="hidden" name="userId" value="<?php echo $_SESSION['user']->getUserId(); ?>" />
+	            </div>            
+	        </div>
+	        <div class="row">
+	            <div class="col-sm-2">
+	            </div>
+	            <div class="col-sm-10">
+	            	<input type="submit" name="submit" value="Request Service" class="btn btn-info">
+	            </div>
+	        </div>
+	    </form>    
+	    </div>  
+    </div>
+	<script type="text/javascript">
+		var month,
+			day,
+			year,
+			hour,
+			min,
+			d = new Date();
+		month = d.getMonth() + 1;
+		day = d.getDate();
+		year = d.getFullYear();
+		hour = d.getHours() + 1;
+		min = d.getMinutes() + 1;
+//		alert('Month: '+month+'\n Day: '+day+'\n Year: '+year);
+		var acuraModels = ['CL', 'ILX', 'ILX Hybrid', 'Integra', 'Legend', 'MDX', 'NSX', 'NSX-T', 'RDX', 'RL', 'RLX', 'RSX',
+							'SLX', 'TL', 'TSX', 'Vigor', 'ZDX'],
+			audiModels = ['80', '90', '100','A3', 'A4', 'A5', 'A6', 'A7', 'A8', 'AllRoad', 'Cabriolet', 'Q5', 'Q5 Hybrid', 
+							'Q7', 'Quattro', 'R8', 'RS 5', 'RS 7', 'RS', 'RS 4', 'RS6', 'S4', 'S5', 'S6', 'S7', 'S8', 'SQ5', 
+							'TT', 'TTS'],
+			bmwModels = ['1 Series', '2 Series', '3 Series', '4 Series', '5 Series', '6 Series', '7 Series', '8 Series', 
+							'ActiveHybrid 7', 'ALPINA B6 Gran Coupe', 'i3', 'M', 'M235', 'M3', 'M4', 'M5', 'M6', 'X1', 'X3', 
+							'X4', 'X5', 'X6 M', 'Z3', 'Z4', 'Z8'],
+			buickModels = ['Century', 'Enclave', 'Encore', 'LaCrosse', 'LeSabre', 'Lucerne', 'Park Avenue', 'Regal', 
+							'Rendezvous', 'Rainier', 'Riviera', 'Roadmaster', 'Skylark', 'Terraza', 'Verano'],
+			cadillacModels = ['ATS Sedan', 'CTS Coupe', 'CTS Sedan', 'CTS Sports Wagon', 'CTS-V Coupe', 'CTS-V Sedan', 
+							'CTS-V Wagon', 'ELR Coupe', 'Escalade','Escalade ESV', 'SRX Crossover', 'XTS Sedan'],
+			chevyModels = ['Astro', 'Avalanche', 'Aveo', 'Beretta','Blazer', 'Camaro', 'Caprice', 'Cavalier', 'City Express', 
+							'Chevy Van', 'Cobalt', 'Colorado', 'Corvette', 'Corsica', 'Cruze', 'Equinox', 'Express', 
+							'Express 2500', 'Express 3500', 'HHR','Impala', 'Lumina', 'Lumina Minivan', 'Malibu', 
+							'Malibu Hybrid', 'Malibu MAXX', 'Metro', 'Monte Carlo', 'Prizm', 'Silverado 2500HD', 'SS', 
+							'Silverado', 'Silverado 1500 HD', 'Silverado 1500 Hybrid', 'Silverado 2500', 'Silverado 3500HD', 
+							'Sonic', 'Spark', 'Spark EV', 'Sportvan', 'SSR', 'Suburban', 'Suburban 1500', 'Traverse', 
+							'Tracker', 'Trailblazer', 'Trailblazers EXT', 'Tahoe Hybrid', 'Uplander', 'Venture', 'Volt', ],
+			chryslerModels = ['200', '300', '300M', 'Aspen', 'Concorde', 'Cirrus', 'Crossfire', 'Fifth Avenue', 'Imperial', 
+							'LeBaron', 'LHS', 'New Yorker', 'Pacificer', 'Prowler', 'PT Cruiser', 'Sebring', 'Voyager'],
+			dodgeModels = ['Avenger' , 'Caravan', 'Caliber', 'Charger', 'Challenger', 'Dakota', 'Dart', 'Daytona', 'Durango', 
+							'Dynasty', 'Grand Caravan', 'Intrepid', 'Journey', 'Magnum', 'Monaco', 'Neon', 'Nitro', 
+							'Ramcharger', 'Ram 150', 'Ram 250', 'Ram 350', 'Ram Pickup 1500', 'Ram Pickup 2500', 
+							'Ram Pickup 3500', 'Ram Van', 'Ram Van 1500', 'Ram Van 2500', 'Ram Van 3500', 'Ram Wagon', 
+							'Stratus', 'Shadow', 'Spirit', 'Stealth', 'Viper'],
+			fiatModels = ['500', '500c', '500e', '500L'], 
+			fordModels = ['Aerostar', 'Aspire', 'Bronco', 'C-Max Energi', 'C-Max Hybrid', 'Contour', 'Crown Victoria', 
+							'E-150', 'E-250', 'E-350 Super Duty', 'Edge', 'Escape', 'Escape Hybrid', 'Escort', 'Expedition', 
+							'Excursion', 'Expidition EL', 'Explorer', 'Explorer Sport', 'Explorer Sport Trac', 'F-150', 
+							'F-150 Heritage', 'F-250', 'F-350', 'F-450', 'Festiva', 'Fiesta', 'Five Hundred', 'Flex', 
+							'Freestar', 'Freestyle', 'Focus', 'Focus Electric', 'Focus ST', 'Fusion', 'Fusion Energi', 
+							'Fusion Hybrid', 'GT', 'Mustang', 'Probe', 'Ranger', 'Shelby GT', 'Taurus', 'Taurus X', 'Tempo', 
+							'Thunderbird', 'Transit-150', 'Transit-250', 'Transit-350', 'Transit Connect', 'Windstar'],
+			gmcModels = ['Acadia', 'Canyon', 'Envoy', 'Envoy XL', 'Envoy XUV', 'Magnavan', 'Rally Wagon', 'Safari', 'Savana', 
+							'Savana 2500', 'Savana 3500', 'Sierra 1500', 'Sierra 1500 Classic', 'Sierra 1500 HD', 
+							'Sierra 1500HD Classic', 'Sierra 1500 Hybrid', 'Sierra 2500', 'Sierra 2500 Chassis', 
+							'Sierra 2500HD', 'Sierra 2500HD Classic', 'Sierra 3500', 'Sierra 3500HD', 'Sierra 3500 Classic', 
+							'Sonoma', 'Terrain', 'Vandura', 'Yukon', 'Yukon Hybrid', 'Yukon XL'],
+			hondaModels = ['Accord', 'Accord Hybrid', 'Accord Plug-In Hybrid', 'Civic', 'Civic Hybrid', 'Civic Natural Glass', 
+							'CR-V', 'CR-Z','Crosstour', 'Del Sol', 'Element','Fit', 'Fit EV', 'Insight', 'Odyssey', 
+							'Passport','Pilot', 'Prelude', 'Ridgeline', 'S2000'],
+			hummerModels = ['H1', 'H2 SUT', 'H3', 'H3T'],
+			hyundaiModels = ['Accent', 'Azera', 'Entourage', 'Elantra', 'Elantra GT', 'Elantra Touring', 'Equus', 'Excel', 
+							'Genesis', 'Santa Fe', 'Santa Fe Sport', 'Sonata', 'Scoupe', 'Sonata Hybrid', 'Tiburon', 
+							'Tucson', 'Veloster', 'Veracruz', 'XG300', 'XG350'],
+			infinitiModels = ['FX','G', 'I', 'IPL', 'JX', 'M', 'Q', 'Q50', 'Q50 Hybrid','Q60', 'Q60 IPL', 'Q70', 'Q70h', 
+							'QX', 'QX50', 'QX60', 'QX60 Hybrid', 'QX70', 'QX80'],
+			jaguarModels = ['F-Type', 'S-Type', 'XF', 'XJ', 'XJR','XJS', 'XK', 'XK-Series', 'X-Type'],
+			jeepModels = ['Cherokee', 'Comanche', 'Commander', 'Compass', 'Grand Cherokee', 'Liberty', 'Patriot', 'Wrangler'],
+			kiaModels = ['Amanti', 'Borrego', 'Cadenza', 'Forte', 'Forte Koup', 'K900', 'Optima', 'Optima Hybrid', 'Rio', 
+							'Rio5', 'Rondo', 'Sedona', 'Sephia', 'Sorento', 'Soul', 'Spectra', 'Spectra5', 'Sportage'],
+			landroverModels = ['Defender', 'Discovery', 'Discovery Series II', 'Freelander', 'LR2', 'LR3', 'LR4', 
+							'Range Rover', 'Range Rover Evoque', 'Range Rover Sport'],
+			lexusModels = ['CT' ,'ES', 'GS', 'GX', 'HS', 'IS', 'LFA', 'LS', 'LX', 'RX', 'SC'],
+			lincolnModels = ['Aviator', 'Blackwood', 'Continental', 'LS', 'Mark LT', 'Mark VII', 'Mark VIII', 'MKC', 'MKS', 
+							'MKT', 'MKX', 'MKZ', 'MKZ Hybrid', 'Navigator', 'Town Car', 'Zephyr'],
+			mazdaModels = ['626', '626 Cronos', '929', 'B2500', 'B-Series Pickup', 'CX-5', 'CX-7', 'CX-9', 'Mazda2', 
+							'Mazda3', 'Mazda5', 'Mazda6', 'MazdaSpeed3', 'MazdaSpeed Protege', 'Millenia', 'MPV', 'MX-3', 
+							'MX-5 Miata', 'MX-6', 'Navajo', 'Protege5', 'RX-8', 'RX-7', 'Tribute', 'Tribute Hybrid'],
+			mercedesModels = ['190-Class', '300-Class', '400-Class', '500-Class', '600-Class', 'C-Class', 'CLA-Class', 
+							'CL-Class', 'CLK-Class', 'CLS-Class', 'E-Class', 'G-Class', 'GL-Class', 'GLK-Class', 'M-Class', 
+							'R-Class', 'S-Class', 'SL-Class', 'SLK-Class', 'SLR McLaren', 'SLS AMG', 'Sprinter'],
+			miniModels = ['MINI Clubman', 'MINI Cooper', 'MINI Countryman', 'MINI Paceman', 'MINI Roadster'],
+			mitsubishiModels = ['3000GT', 'Diamante', 'Eclipse', 'Eclipse Spyder', 'Endeavor', 'Galant', 'i-MiEV', 'Lancer', 
+							'Lancer Evolution', 'Lancer Sportback', 'Mighty Max Pickup', 'Mirage', 'Montero', 'Montero Sport', 
+							'Outlander', 'Outlander Sport', 'Raider'],
+			nissanModels = ['370Z', 'Altima', 'Armada', 'Cube', 'Frontier', 'GT-R','Juke', 'LEAF', 'Maxima', 'Murano', 
+							'NV200', 'Pathfinder', 'Quest', 'Rogue', 'Sentra', 'Titan', 'Versa', 'Xterra'],
+			oldsmobileModels = ['Achieva', 'Alero', 'Aurora', 'Bravada', 'Custom Cruiser', 'Cutlass', 'Cutlass Ciera', 
+							'Cutlass Cruiser', 'Cutlass Supreme', 'Eighty-Eight', 'Eighty-Eight Royale', 'Intrigue', 'LSS', 
+							'Ninety-Eight', 'Regency', 'Silhouette', 'Toronado'],
+			pontiacModels = ['Aztek', 'Bonneville', 'Firebird', 'G3', 'G5', 'G6', 'G8', 'Grand AM', 'Grand Prix', 'GTO', 
+							'LeMans', 'Montana SV6', 'Solstice', 'Sunbird', 'Sunfire', 'SSE', 'Torrent', 'Trans Sport', 
+							'Vibe'],
+			porscheModels = ['911', '918 Spyder', '928', '968', 'Boxster', 'Carrera GT', 'Cayenne', 'Cayenne Hybrid', 
+							'Cayman', 'Cayman S', 'Macan', 'Panamera', 'Panamera e-Hybrid', 'Panamera Hybrid'],
+			saturnModels = ['Astra', 'Aura', 'EV1', 'Ion', 'L-Series', 'Outlook', 'Relay', 'S-Series', 'Sky', 'Vue'],
+			scionModels = ['FR-S', 'iQ', 'tC', 'xA', 'xB', 'xD'],
+			smartModels = ['smart'],
+			subaruModels = ['Baja', 'BRZ', 'Forester', 'Impreza WRX', 'Justy', 'Loyale', 'Legacy', 'Outback', 'SVX', 
+							'Tribeca', 'WRX', 'WRX STI', 'XV Crosstrek', 'XV Crosstrek Hybrid'],
+			suzukiModels = ['Aerio', 'Equator', 'Esteem','Forenza', 'Grand Vitara', 'Kizashi', 'Reno', 'Samurai', 'Swift', 
+							'SX4', 'Verona', 'XL7', 'X-90'],
+			toyotaModels = ['4Runner', 'Avalon', 'Avalon Hybrid', 'Camry', 'Camry Highbrid', 'Camry Solara', 'Celica', 
+							'Corolla', 'Cressida', 'Echo', 'FJ Cruiser', 'Highlander', 'Highlander Hybrid', 'Land Cruiser', 
+							'Matrix', 'MR2', 'MR2 Spyder', 'Paseo', 'Pickup', 'Previa', 'Prius', 'Prius C', 'prius Plug-In', 
+							'Prius V', 'Rav4', 'Rav4 EV', 'Sequoia', 'Sienna', 'Supra', 'T100', 'Tercel', 'Tundra', 'Tacoma', 
+							'Venza', 'Yaris'],
+			volkswagonModels = ['Beetle', 'Beetle NEW', 'Cabrio', 'CC', 'Corrado', 'Eos', 'EuroVan', 'Fox', 'GLI', 'Golf', 
+							'Golf R', 'GTI', 'Jetta', 'Jetta Hybrid', 'Jetta SportWagen', 'Passat', 'Phaeton', 'R32', 
+							'Routan', 'Tiguan', 'Touareg', 'Toureg Hybrid'],
+			volvoModels = ['S60', 'S80', 'V40', 'V60', 'V70', 'XC60', 'XC70', 'XC90'];
+		$('#make').change(function(){
+			var modelCount, i;
+			switch($(this).val()) 
+			{
+				case 'Acura':
+					changeCarMenu(acuraModels);
+					break;
+					
+				case 'Audi':
+					changeCarMenu(audiModels);
+					break;	
+				
+				case 'BMW':
+					changeCarMenu(bmwModels);
+					break;	
+				
+				case 'Buick':
+					changeCarMenu(buickModels);
+					break;	
+					
+				case 'Cadillac':
+					changeCarMenu(cadillacModels);
+					break;
+					
+				case 'Chevy':
+					changeCarMenu(chevyModels);
+					break;
+				
+				case 'Chrysler':
+					changeCarMenu(chryslerModels);
+					break;
+					
+				case 'Dodge':
+					changeCarMenu(dodgeModels);
+					break;
+					
+				case 'Fiat':
+					changeCarMenu(fiatModels);
+					break;
+				
+				case 'Ford':
+					changeCarMenu(fordModels);
+					break;		
+				
+				case 'GMC':
+					changeCarMenu(gmcModels);
+					break;
+					
+				case 'Honda':
+					changeCarMenu(hondaModels);
+					break;
+					
+				case 'Hummer':
+					changeCarMenu(hummerModels);
+					break;
+				
+				case 'Hyundai':
+					changeCarMenu(hyundaiModels);
+					break;	
+						
+				case 'Infiniti':
+					changeCarMenu(infinitiModels);
+					break;
+					
+				case 'Jaguar':
+					changeCarMenu(jaguarModels);
+					break;
+					
+				case 'Jeep':
+					changeCarMenu(jeepModels);
+					break;
+					
+				case 'Kia':
+					changeCarMenu(kiaModels);
+					break;
+						
+				case 'Land Rover':
+					changeCarMenu(landroverModels);
+					break;
+					
+				case 'Lexus':
+					changeCarMenu(lexusModels);
+					break;
+						
+				case 'Lincoln':
+					changeCarMenu(lincolnModels);
+					break;		
+					
+				case 'Mazda':
+					changeCarMenu(mazdaModels);
+					break;
+						
+				case 'Mercedes-Benz':
+					changeCarMenu(mercedesModels);
+					break;
+						
+				case 'Mini':
+					changeCarMenu(miniModels);
+					break;
+				
+				case 'Mitsubishi':
+					changeCarMenu(mitsubishiModels);
+					break;
+					
+				case 'Nissan':
+					changeCarMenu(nissanModels);
+					break;		
+				
+				case 'Oldsmobile':
+					changeCarMenu(oldsmobileModels);
+					break;
+					
+				case 'Pontiac':
+					changeCarMenu(pontiacModels);
+					break;
+					
+				case 'Porsche':
+					changeCarMenu(porscheModels);
+					break;
+					
+				case 'Saturn':
+					changeCarMenu(saturnModels);
+					break;
+				
+				case 'Scion':
+					changeCarMenu(scionModels);
+					break;	
+				
+				case 'Smart':
+					changeCarMenu(smartModels);
+					break;
+						
+				case 'Subaru':
+					changeCarMenu(subaruModels);
+					break;
+					
+				case 'Suzuki':
+					changeCarMenu(suzukiModels);
+					break;
+					
+				case 'Toyota':
+					changeCarMenu(toyotaModels);
+					break;
+					
+				case 'Volkswagon':
+					changeCarMenu(volkswagonModels);
+					break;
+					
+				case 'Volvo':
+					changeCarMenu(volvoModels);
+					break;	
+			}
+		});
+			
+		$('#month').change(function(){
+			if($('#year').val() == '---Year---' || $('#year').val() == year)
+			{
+				if($(this).val() < month)
+				{
+					$('#month :nth-child('+(month+1)+')').prop('selected', true);
+				}
+			}
+			changeDay($(this).val());
+		});
+			
+		function changeCarMenu(vehicleModels)
+		{
+			modelCount = vehicleModels.length;
+			var vehicleOptions;
+			for(i = 0; i < modelCount; i++)
+			{
+				vehicleOptions += '<option>'+vehicleModels[i]+'</option>';
+			}
+			$('#model').html(vehicleOptions);
+		}
+		
+		$('#day').change(function(){
+			if($('#month').val() == month)
+			{
+				if($('#day').val() < day)
+				{
+					$('#day :nth-child('+day+')').prop('selected', true);
+				}	
+			}
+		});
+		
+		$('#hour').change(function(){
+			var currentHour;
+			if(hour > 12) //past 12pm
+			{
+				currentHour = hour - 12;
+				if($('#hour').val() < currentHour)
+				{
+					if($('#month').val() == month || $('#month').val() == '--Month--')
+					{
+						if($('#day').val() == day || $('#day').val() == '---Day---')
+						{
+							$('#hour :nth-child('+currentHour+')').prop('selected', true);
+							$('#frame :nth-child(3)').prop('selected', true);
+						}	
+					}	
+				}
+			} else { //before 12pm
+				if($('#hour').val() < hour)
+				{
+					if($('#month').val() == month || $('#month').val() == '--Month--')
+					{
+						if($('#day').val() == day || $('#day').val() == '---Day---')
+						{
+							$('#hour :nth-child('+hour+')').prop('selected', true);
+							$('#frame :nth-child(2)').prop('selected', true);
+						}	
+					}
+				}
+			}
+		});
+		
+		$('#minute').change(function(){
+			if($('#minute').val() < min)
+			{
+				var nextCeil = (parseInt(min/10, 10)+1)*10;
+				switch(nextCeil)
+				{
+					case 0:
+						$('#minute :nth-child(2)').prop('selected', true);
+					break;
+					case 10:
+						$('#minute :nth-child(3)').prop('selected', true);
+					break;
+					case 20:
+						$('#minute :nth-child(4)').prop('selected', true);
+					break;
+					case 30:
+						$('#minute :nth-child(5)').prop('selected', true);
+					break;
+					case 40:
+						$('#minute :nth-child(6)').prop('selected', true);
+					break;
+					case 50:
+						$('#minute :nth-child(7)').prop('selected', true);
+					break;
+					case 60:
+						$('#minute :nth-child(2)').prop('selected', true);
+					break;
+				}
+			}
+		});
+		
+		function checkMonth()
+		{
+			if($('#month').val() == month)
+			{
+				$('#day :nth-child('+day+')').prop('selected', true);
+			}
+		}
+			
+		function changeDay(month)
+		{
+			var dayOptions;
+			month.toString();
+			switch(month)
+			{
+				case '1':
+					setDays(31);
+					checkMonth();
+					break;
+				case '2':
+					setDays(28);
+					checkMonth();
+					break;
+				case '3':
+					setDays(31);
+					checkMonth();
+					break;
+				case '4':
+					setDays(30);
+					checkMonth();
+					break;
+				case '5':	
+					setDays(31);
+					checkMonth();
+					break;
+				case '6':
+					setDays(30);
+					checkMonth();
+					break;
+				case '7':
+					setDays(31);
+					checkMonth();
+					break;
+				case '8':
+					setDays(31);
+					checkMonth();
+					break;
+				case '9':
+					setDays(30);
+					checkMonth();
+					break;
+				case '10':
+					setDays(31);
+					checkMonth();
+					break;
+				case '11':
+					setDays(30);
+					checkMonth();
+					break;
+				case '12':
+					setDays(31);
+					checkMonth();
+					break;									
+			}
+		}
+			
+		function setDays(numDays)
+		{
+			var dayOptions, i;
+			for(i = 1; i <= numDays; i++)
+			{
+				dayOptions += '<option>'+i+'</option>';
+			}
+			$('#day').html(dayOptions);
+		}
+	</script>
+
+</body>
+</html>

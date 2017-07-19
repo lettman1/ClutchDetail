@@ -1,0 +1,230 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Requests</title>
+
+    <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/local.css" />
+
+    <script type="text/javascript" src="../js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- you need to include the shieldui css and js assets in order for the charts to work -->
+    <link rel="stylesheet" type="text/css" href="../css/shieldui-all.min.css" />
+    <link rel="stylesheet" type="text/css" href="../bootstrap/light-bootstrap/all.min.css" />
+    <script type="text/javascript" src="../js/shieldui-all.min.js"></script>
+    <script type="text/javascript" src="../js/gridData.js"></script>
+</head>
+<body>
+
+    <div id="wrapper">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.php">Clutch Details</a>
+            </div>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li><a href="../index.php"><i class="fa fa-bullseye"></i> Dashboard</a></li>
+                    <li><a href="requests.php"><i class="fa fa-tasks"></i> Requests</a></li>
+                    <li><a href="service-request.php"><i class="fa fa-list-ol"></i> Request Detail</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right navbar-user">
+                    <li class="dropdown messages-dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> Messages <span class="badge"><?php echo $numberOfMessages; ?></span> <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-header"><?php echo $numberOfMessages; ?> New Messages</li>
+                            <li class="divider"></li>
+                            <li><a href="#">Go to Inbox <span class="badge"><?php echo $numberOfMessages; ?></span></a></li>
+                        </ul>
+                    </li>
+                     <li class="dropdown user-dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $_SESSION['user']->getUsername(); ?><b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="settings.php"><i class="fa fa-gear"></i> Settings</a></li>
+                            <li class="divider"></li>
+                            <li><a href="logout.php"><i class="fa fa-power-off"></i> Log Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Messages <small>of service</small></h1>
+                    <div class="alert alert-success alert-dismissable">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        Welcome to the messages page! Here you will find important messages from customers and the <em>Clutch</em> team.
+                    </div>
+                    <?php
+                    	if($numberOfMessages == 0)
+                    	{
+                    ?>	
+                    		<h1><small>Sorry, you have no messages</small></h1>
+                    <?php	
+                    	}
+                    ?>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> Message Log</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div id="shieldui-grid1" class="sui-grid sui-grid-core">
+                            	<form method="POST" action="requests.php">
+	                            	<div class="sui-gridheader">
+	                            		<table class="sui-table sui-non-selectable">
+	                            			<colgroup>
+	                            				<col style="width: 70px;">
+	                            				<col style="width: 120px;">
+	                            				<col>
+	                            			</colgroup>
+	                            			<thead>
+	                            				<tr class="sui-columnheader">
+	                            					<th>
+	                            						Delete
+	                            					</th>
+	                            					<th class="sui-headercell">
+	                            						Sender
+	                            					</th>
+	                            					<th class="sui-headercell">
+	                            						Message
+	                            					</th>
+	                            				</tr>
+	                            			</thead>
+	                            		</table>
+	                            	</div>
+	                            	<div class="sui-gridcontent">
+	                            		<table class="sui-table sui-hover sui-selectable">
+	                            			<colgroup>
+	                            				<col style="width: 70px;">
+	                            				<col style="width: 120px;">
+	                            				<col>
+	                            			</colgroup>
+	                            			<tbody>
+	                            				<?php
+													for($i = 0; $i < $numberOfMessages; $i++)
+													{
+														if($i%2 == 0)
+														{
+															$rowValue = "sui-row";
+														} else {
+															$rowValue = "sui-alt-row";
+														}
+												?>
+														<tr class="<?php echo $rowValue; ?>">
+															<td class="sui-cell">
+																<input type="checkbox" name="acceptDetail[]" value="<?php echo $info['id'][$i]; ?>">
+															</td>
+															<td class="sui-cell">
+																<?php echo $info['id'][$i]; ?>
+															</td>
+															<td class="sui-cell">
+																lalal
+															</td>
+														</tr>
+												<?php
+													}
+												?>
+	                            			</tbody>
+	                            		</table>
+	                            	</div>
+                            		<input type="submit" class="btn btn-success" value="Delete" style="float: right; font-family: Arial, Helvetica, sans-serif; margin-top: 8px;">
+                            	</form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END OF TABLES -->
+        </div>
+    </div>
+    <!-- /#wrapper -->
+
+    <script type="text/javascript">
+        jQuery(function ($) {
+            var performance = [12, 43, 34, 22, 12, 33, 4, 17, 22, 34, 54, 67],
+                visits = [123, 323, 143, 132, 274, 223, 143, 156, 223, 223],
+                budget = [23, 19, 11, 34, 42, 52, 35, 22, 37, 45, 55, 57],
+                sales = [11, 9, 31, 34, 42, 52, 35, 22, 37, 45, 55, 57],
+                targets = [17, 19, 5, 4, 62, 62, 75, 12, 47, 55, 65, 67],
+                avrg = [117, 119, 95, 114, 162, 162, 175, 112, 147, 155, 265, 167];
+
+            $("#shieldui-chart1").shieldChart({
+                primaryHeader: {
+                    text: "Visitors"
+                },
+                exportOptions: {
+                    image: false,
+                    print: false
+                },
+                dataSeries: [{
+                    seriesType: "area",
+                    collectionAlias: "Q Data",
+                    data: performance
+                }]
+            });
+
+            $("#shieldui-chart2").shieldChart({
+                primaryHeader: {
+                    text: "Login Data"
+                },
+                exportOptions: {
+                    image: false,
+                    print: false
+                },
+                dataSeries: [
+                    {
+                        seriesType: "polarbar",
+                        collectionAlias: "Logins",
+                        data: visits
+                    },
+                    {
+                        seriesType: "polarbar",
+                        collectionAlias: "Avg Visit Duration",
+                        data: avrg
+                    }
+                ]
+            });
+
+            $("#shieldui-chart3").shieldChart({
+                primaryHeader: {
+                    text: "Sales Data"
+                },
+                dataSeries: [
+                    {
+                        seriesType: "bar",
+                        collectionAlias: "Budget",
+                        data: budget
+                    },
+                    {
+                        seriesType: "bar",
+                        collectionAlias: "Sales",
+                        data: sales
+                    },
+                    {
+                        seriesType: "spline",
+                        collectionAlias: "Targets",
+                        data: targets
+                    }
+                ]
+            });
+        });
+    </script>
+</body>
+</html>

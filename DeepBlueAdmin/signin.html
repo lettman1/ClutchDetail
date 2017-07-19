@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-in</title>
+
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/local.css" />
+
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>   
+</head>
+<body>
+
+    <div id="wrapper">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.php">Welcome to Clutch</a>
+            </div>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li class="active"><a href="../index.php"><i class="fa fa-bullseye"></i> Home</a></li>
+                    <li><a href="../php/add-user-out.php"><i class="fa fa-list-ol"></i> Sign-Up</a></li>  
+                    <li><a href="about.html"><i class="fa fa-list-ol"></i> About Us</a></li>
+                    <li><a href="../php/service-request.php"><i class="fa fa-list-ol"></i> Request Detail</a></li>         
+                </ul>
+            </div>
+        </nav>
+
+        <div id="page-wrapper">
+
+            <div class="row">
+
+                <div class="col-lg-12 text-center v-center">
+
+                    <h1>Sign In</h1>
+                    <p class="lead">Enter your username and password to login</p>
+
+                    <br>
+                    <br>
+
+                    <form class="col-lg-12" method="POST" action="../index.php">
+                        <div class="input-group" style="width: 340px; text-align: center; margin: 0 auto;">
+                            <input class="form-control input-lg" name="username" title="username" placeholder="Enter your username" type="text" style="margin-bottom: 15px;"><br>
+                            <input class="form-control input-lg" name="password" title="password" placeholder="Enter your password" type="password" style="margin-bottom: 10px;"><br>
+                            <input type="submit" name="submit" class="btn btn-lg btn-primary" type="button" style="float: right;">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <div class="text-center">
+                <h1>Follow us</h1>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 text-center v-center" style="font-size: 39pt;">
+                    <a href="#"><span class="avatar"><i class="fa fa-google-plus"></i></span></a>
+                    <a href="#"><span class="avatar"><i class="fa fa-linkedin"></i></span></a>
+                    <a href="#"><span class="avatar"><i class="fa fa-facebook"></i></span></a>
+                    <a href="#"><span class="avatar"><i class="fa fa-github"></i></span></a>
+                </div>
+
+            </div>
+            <!-- /.row -->
+
+        </div>
+        <!-- /#page-wrapper -->
+    </div>    
+</body>
+</html>

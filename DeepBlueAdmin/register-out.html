@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Deep Blue Admin</title>
+
+    <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/local.css" />
+
+    <script type="text/javascript" src="../js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>   
+
+      <style>
+
+        div {
+            padding-bottom:20px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="wrapper">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="navbar-header" style="padding-bottom: 0;">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Welcome to Admin</a>
+            </div>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li><a href="../index.php"><i class="fa fa-bullseye"></i> Dashboard</a></li>
+                    <li class="active"><a href="php/add-user-out.php"><i class="fa fa-list-ol"></i> Sign-Up</a></li> 
+                    <li><a href="../DeepBlueAdmin/about.html"><i class="fa fa-list-ol"></i> About Us</a></li>       
+                </ul>
+            </div>
+        </nav>
+		<?php
+       		if(isset($error))
+       		{
+       	?>
+       			<div class="alert alert-danger alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <?php echo $error; ?>
+                </div>
+       	<?php		
+       		}
+       	?>
+       <div>
+        <div class="row text-center">
+            <h2>New Registration</h2>
+        </div>
+        <form method="POST" action="add-user-out.php">
+	        <div>
+	            <label for="firstname" class="col-md-2">
+	                First Name:
+	            </label>
+	            <div class="col-md-9">
+	                <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Enter First Name">
+	            </div>
+	            <div class="col-md-1">
+	                <i class="fa fa-lock fa-2x"></i>
+	            </div>
+	        </div>        
+	        <div>
+	            <label for="lastname" class="col-md-2">
+	                Last Name:
+	            </label>
+	            <div class="col-md-9">
+	                <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Enter Last Name">
+	            </div>
+	             <div class="col-md-1">
+	                <i class="fa fa-lock fa-2x"></i>
+	            </div>
+	        </div>
+	        <div>
+	            <label for="emailaddress" class="col-md-2">
+	                Create Username:
+	            </label>
+	            <div class="col-md-9">
+	                <input type="text" class="form-control" id="username" name="addUsername" placeholder="Create Username">
+	            </div>
+	             <div class="col-md-1">
+	                <i class="fa fa-lock fa-2x"></i>
+	            </div>
+	        </div>
+	        <div>
+	            <label for="emailaddress" class="col-md-2">
+	                Email address:
+	            </label>
+	            <div class="col-md-9">
+	                <input type="email" class="form-control" id="emailaddress" name="email" placeholder="Enter email address">
+	                <p class="help-block">
+	                    Example: yourname@domain.com
+	                </p>
+	            </div>
+	             <div class="col-md-1">
+	                <i class="fa fa-lock fa-2x"></i>
+	            </div>
+	        </div>
+	        <div>
+	            <label for="password" class="col-md-2">
+	                Password:
+	            </label>
+	            <div class="col-md-9">
+	                <input type="password" class="form-control" id="password" name="addPassword" placeholder="Enter Password">
+	                <p class="help-block">
+	                    Min: 6 characters (Alphanumeric only)
+	                </p>
+	            </div>
+	             <div class="col-md-1">
+	                <i class="fa fa-lock fa-2x"></i>
+	            </div>
+	        </div>
+	        <div>
+	            <label for="country" class="col-md-2">
+	                Account Type:
+	            </label>
+	            <div class="col-md-9">
+	                <select name="type" id="country" class="form-control">
+	                    <option>--Please Select--</option>
+	                    <option value="business">Business Customer</option>
+	                    <option value="customer">Customer</option>
+	                    <option value="servicer">Servicer</option>
+	                </select>
+	            </div>            
+	        </div>
+	        <div>
+	            <label for="emailaddress" class="col-md-2">
+	                Address:
+	            </label>
+	            <div class="col-md-9">
+	                <input type="text" class="form-control" id="address" name="address" placeholder="1234 Corner street, City, State, Zipcode">
+	                <p class="help-block">
+	                    1234 Corner street, City, State, Zipcode
+	                </p>
+	            </div>
+	             <div class="col-md-1">
+	                <i class="fa fa-lock fa-2x"></i>
+	            </div>
+	        </div>
+	        <div>
+	            <div class="col-md-2">
+	            </div>
+	            <div class="col-md-10">
+	                <label>
+	                    <input type="checkbox" name="agree">I hereby accept the terms and conditions for using this site</label>
+	            </div>            
+	        </div>
+	        <div class="row">
+	            <div class="col-md-2">
+	            </div>
+	            <div class="col-md-10">
+	            	<input type="submit" name="submit" value="Register" class="btn btn-info">
+	            </div>
+	        </div>
+	    </form>    
+	    </div>  
+    </div>
+
+</body>
+</html>

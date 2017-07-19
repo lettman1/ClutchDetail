@@ -1,0 +1,439 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboards</title>
+
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/local.css" />
+
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- you need to include the shieldui css and js assets in order for the charts to work -->
+    <link rel="stylesheet" type="text/css" href="css/shieldui-all.min.css" />
+    <link rel="stylesheet" type="text/css" href="bootstrap/light-bootstrap/all.min.css" />
+    <script type="text/javascript" src="js/shieldui-all.min.js"></script>
+    <script type="text/javascript" src="js/gridData.js"></script>
+</head>
+<body>
+
+    <div id="wrapper">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Clutch Details</a>
+            </div>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li class="active"><a href="index.php"><i class="fa fa-bullseye"></i> Dashboard</a></li>
+                    <li><a href="php/requests.php"><i class="fa fa-tasks"></i> Requests</a></li>
+                    <li><a href="php/service-request.php"><i class="fa fa-list-ol"></i> Request Detail</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right navbar-user">
+                    <li class="dropdown messages-dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> Messages <span class="badge"><?php echo $numberOfMessages; ?></span> <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-header"><?php echo $numberOfMessages; ?> New Messages</li>
+                            <li class="divider"></li>
+                            <li><a href="php/message-list.php">Go to Inbox <span class="badge"><?php echo $numberOfMessages; ?></span></a></li>
+                        </ul>
+                    </li>
+                     <li class="dropdown user-dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $_SESSION['user']->getUsername(); ?><b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="php/settings.php"><i class="fa fa-gear"></i> Settings</a></li>
+                            <li class="divider"></li>
+                            <li><a href="php/logout.php"><i class="fa fa-power-off"></i> Log Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Dashboard <small>Dashboard Home</small></h1>
+                    <div class="alert alert-success alert-dismissable">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        Welcome to the admin dashboard! Thank you for being apart of the Big Man Detailing team. Here you have tools in order to keep track of the work you have
+                        done and the work you have left to do.
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="panel panel-default ">
+                        <div class="panel-body alert-info">
+                            <div class="col-xs-5">
+                                <i class="fa fa-truck fa-5x"></i>
+                            </div>
+                            <div class="col-xs-6 text-right">
+                                <p class="alerts-heading"><?php echo $totalRequests; ?></p>
+                                <p class="alerts-text">Pending Orders</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="panel panel-default ">
+                        <div class="panel-body alert-info">
+                            <div class="col-xs-5">
+                                <i class="fa fa-money fa-5x"></i>
+                            </div>
+                            <div class="col-xs-5 text-right">
+                                <p class="alerts-heading">$<?php echo $income; ?></p>
+                                <p class="alerts-text">Income</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+			</div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> My Detail Requests</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div id="shieldui-grid1" class="sui-grid sui-grid-core">
+                            	<form method="POST" action="index.php">
+	                            	<div class="sui-gridheader">
+	                            		<table class="sui-table sui-non-selectable">
+	                            			<colgroup>
+	                            				<col style="width: 70px;">
+	                            				<col>
+	                            				<col>
+	                            				<col>
+	                            				<col>
+	                            				<col>
+	                            				<col>
+	                            				<col>
+	                            			</colgroup>
+	                            			<thead>
+	                            				<tr class="sui-columnheader">
+	                            					<th>
+	                            						Complete
+	                            					</th>
+	                            					<th class="sui-headercell">
+	                            						ID
+	                            					</th>
+	                            					<th class="sui-headercell">
+	                            						Detail Type
+	                            					</th>
+	                            					<th class="sui-headercell">
+	                            						Make
+	                            					</th>
+	                            					<th class="sui-headercell">
+	                            						Model
+	                            					</th>
+	                            					<th class="sui-headercell">
+	                            						Vehicle Number
+	                            					</th>
+	                            					<th class="sui-headercell">
+	                            						Date Needed
+	                            					</th>
+	                            					<th class="sui-headercell">
+	                            						Location
+	                            					</th>
+	                            				</tr>
+	                            			</thead>
+	                            		</table>
+	                            	</div>
+	                            	<div class="sui-gridcontent">
+	                            		<table class="sui-table sui-hover sui-selectable">
+	                            			<colgroup>
+	                            				<col style="width: 70px;">
+	                            				<col>
+	                            				<col>
+	                            				<col>
+	                            				<col>
+	                            				<col>
+	                            				<col>
+	                            				<col>
+	                            			</colgroup>
+	                            			<tbody>
+	                            				<?php
+													for($i = 0; $i < $numberOfRequests; $i++)
+													{
+														if($i%2 == 0)
+														{
+															$rowValue = "sui-row";
+														} else {
+															$rowValue = "sui-alt-row";
+														}
+												?>
+														<tr class="<?php echo $rowValue; ?>">
+															<td class="sui-cell">
+																<input type="checkbox" name="completeDetail[]" value="<?php echo $info['id'][$i]; ?>">
+															</td>
+															<td class="sui-cell">
+																<?php echo $info['id'][$i]; ?>
+															</td>
+															<td class="sui-cell">
+																<?php echo $info['detailType'][$i]; ?>
+															</td>
+															<td class="sui-cell">
+																<?php echo $info['make'][$i]; ?>
+															</td>
+															<td class="sui-cell">
+																<?php echo $info['model'][$i]; ?>
+															</td>
+															<td class="sui-cell">
+																<?php echo $info['vehicleNumber'][$i]; ?>
+															</td>
+															<td class="sui-cell">
+																<?php echo $info['dateNeeded'][$i]; ?>
+															</td>
+															<td class="sui-cell">
+																<?php echo $info['location'][$i]; ?>
+															</td>
+														</tr>
+												<?php
+													}
+												?>
+	                            			</tbody>
+	                            		</table>
+	                            	</div>
+                            		<input type="submit" class="btn btn-success" value="Job Completed" style="float: right; font-family: Arial, Helvetica, sans-serif; margin-top: 8px;">
+                            	</form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="col-lg-4">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> Logins per week</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div id="shieldui-chart2"></div>
+                        </div>
+                    </div>
+                </div>-->
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> My Business Detail Requests</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div id="shieldui-grid1" class="sui-grid sui-grid-core">
+                            	<form method="POST" action="index.php">
+	                            	<div class="sui-gridheader">
+	                            		<table class="sui-table sui-non-selectable">
+	                            			<colgroup>
+	                            				<col style="width: 70px;">
+	                            				<col>
+	                            				<col>
+	                            				<col>
+	                            				<col>
+	                            				<col>
+	                            			</colgroup>
+	                            			<thead>
+	                            				<tr class="sui-columnheader">
+	                            					<th>
+	                            						Complete
+	                            					</th>
+	                            					<th class="sui-headercell">
+	                            						ID
+	                            					</th>
+	                            					<th class="sui-headercell">
+	                            						Detail Type
+	                            					</th>
+	                            					<th class="sui-headercell">
+	                            						Vehicle Type
+	                            					</th>
+	                            					<th class="sui-headercell">
+	                            						Number of Vehicles
+	                            					</th>
+	                            					<th class="sui-headercell">
+	                            						Date Needed
+	                            					</th>
+	                            				</tr>
+	                            			</thead>
+	                            		</table>
+	                            	</div>
+	                            	<div class="sui-gridcontent">
+	                            		<table class="sui-table sui-hover sui-selectable">
+	                            			<colgroup>
+	                            				<col style="width: 70px;">
+	                            				<col>
+	                            				<col>
+	                            				<col>
+	                            				<col>
+	                            				<col>
+	                            			</colgroup>
+	                            			<tbody>
+	                            				<?php
+													for($i = 0; $i < $numberOfBusRequests; $i++)
+													{
+														if($i%2 == 0)
+														{
+															$rowValue = "sui-row";
+														} else {
+															$rowValue = "sui-alt-row";
+														}
+												?>
+														<tr class="<?php echo $rowValue; ?>">
+															<td class="sui-cell">
+																<input type="checkbox" name="completeBusDetail[]" value="<?php echo $busInfo['id'][$i]; ?>">
+															</td>
+															<td class="sui-cell">
+																<?php echo $busInfo['id'][$i]; ?>
+															</td>
+															<td class="sui-cell">
+																<?php echo $busInfo['detailType'][$i]; ?>
+															</td>
+															<td class="sui-cell">
+																<?php echo $busInfo['numOfVehicles'][$i]; ?>
+															</td>
+															<td class="sui-cell">
+																<?php echo $busInfo['dateNeeded'][$i]; ?>
+															</td>
+															<td class="sui-cell">
+																<?php echo $busInfo['detailType'][$i]; ?>
+															</td>
+														</tr>
+												<?php
+													}
+												?>
+	                            			</tbody>
+	                            		</table>
+	                            	</div>
+                            		<input type="submit" class="btn btn-success" value="Job Completed" style="float: right; font-family: Arial, Helvetica, sans-serif; margin-top: 8px;">
+                            	</form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End of Tables -->
+<!-- 
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> Sales Data</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div id="shieldui-chart3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+ -->
+        </div>
+    </div>
+    <!-- /#wrapper -->
+
+    <script type="text/javascript">
+        jQuery(function ($) {
+            var performance = [12, 43, 34, 22, 12, 33, 4, 17, 22, 34, 54, 67],
+                visits = [123, 323, 143, 132, 274, 223, 143, 156, 223, 223],
+                budget = [23, 19, 11, 34, 42, 52, 35, 22, 37, 45, 55, 57],
+                sales = [11, 9, 31, 34, 42, 52, 35, 22, 37, 45, 55, 57],
+                targets = [17, 19, 5, 4, 62, 62, 75, 12, 47, 55, 65, 67],
+                avrg = [117, 119, 95, 114, 162, 162, 175, 112, 147, 155, 265, 167];
+
+            $("#shieldui-chart1").shieldChart({
+                primaryHeader: {
+                    text: "Visitors"
+                },
+                exportOptions: {
+                    image: false,
+                    print: false
+                },
+                dataSeries: [{
+                    seriesType: "area",
+                    collectionAlias: "Q Data",
+                    data: performance
+                }]
+            });
+
+            $("#shieldui-chart2").shieldChart({
+                primaryHeader: {
+                    text: "Login Data"
+                },
+                exportOptions: {
+                    image: false,
+                    print: false
+                },
+                dataSeries: [
+                    {
+                        seriesType: "polarbar",
+                        collectionAlias: "Logins",
+                        data: visits
+                    },
+                    {
+                        seriesType: "polarbar",
+                        collectionAlias: "Avg Visit Duration",
+                        data: avrg
+                    }
+                ]
+            });
+
+            $("#shieldui-chart3").shieldChart({
+                primaryHeader: {
+                    text: "Sales Data"
+                },
+                dataSeries: [
+                    {
+                        seriesType: "bar",
+                        collectionAlias: "Budget",
+                        data: budget
+                    },
+                    {
+                        seriesType: "bar",
+                        collectionAlias: "Sales",
+                        data: sales
+                    },
+                    {
+                        seriesType: "spline",
+                        collectionAlias: "Targets",
+                        data: targets
+                    }
+                ]
+            });
+
+            // $("#shieldui-grid1").shieldGrid({
+//                 dataSource: {
+//                     data: gridData
+//                 },
+//                 sorting: {
+//                     multiple: true
+//                 },
+//                 paging: {
+//                     pageSize: 7,
+//                     pageLinksCount: 4
+//                 },
+//                 selection: {
+//                     type: "row",
+//                     multiple: true,
+//                     toggle: false
+//                 },
+//                 columns: [
+//                     { field: "id", width: "70px", title: "ID" },
+//                     { field: "email", title: "Email Address" },
+//                     { field: "make", title: "Make" },
+//                     { field: "model", title: "Model"}, 
+//                     { field: "vehicle#", title: "Vehicle Number"},
+//                     { field: "dateneed", title: "Date Needed"},
+//                     { field: "location", title: "Location"}
+//                 ]
+//             });
+        });
+    </script>
+</body>
+</html>

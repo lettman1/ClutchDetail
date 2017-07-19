@@ -1,0 +1,1267 @@
+<html>
+	<head>
+		<style>
+			body
+			{
+				background-image: url('../images/AD-BMW-PDI.jpg'); 
+  				-webkit-background-size: cover;
+  				-moz-background-size: cover;
+  				-o-background-size: cover;
+  				background-size: cover;
+  				margin: 0;
+  				padding: 0;
+			}
+			
+			/* Edit Below to Customize Widths 400 => 767px */
+			@media (min-width:400px) and (max-width: 767px) {
+				.banner
+				{
+					background-color: #000000;
+					opacity: 0.5;
+					width: 100%;
+					height: 60px;
+					color: #FFFFFF;
+					font-family: Calibri, sans-serif;
+					font-size: 50px;
+				}
+	
+				.menu
+				{
+					float: left;
+					width: 30%;
+				}
+	
+				.login
+				{
+					float: right;
+					text-align: right;
+					width: 50%;
+				}
+	
+				.companyName
+				{
+					margin: 0px auto;
+					display: block;
+					text-align: center;
+					width: 50%;
+				}
+	
+				.banner ul
+				{
+					list-style-type: none;
+					width: 100%;
+					padding: 0; 
+					margin: 0;
+				}
+	
+				.banner ul li
+				{
+					display: block;
+					float: left;
+					width: 50%;
+				}
+	
+				.banner ul li a
+				{
+					color: #FFFFFF;
+					text-decoration: none;
+				}
+	
+				.last
+				{
+					text-align: right;
+				}
+	
+				.pointer
+				{
+					cursor: pointer;
+				}
+	
+				#side-menu
+				{
+					display: none;
+					background-color: #000000;
+					color: #FFFFFF;
+					width: 100%;
+					opacity: .8;
+					float: left;
+					text-align: center;
+				}
+	
+				#side-menu ul
+				{
+					list-style-type: none;
+					padding: 0;
+					margin: 0;
+				}
+	
+				#side-menu ul li
+				{
+					height: 50px;
+					border-bottom: 1px dotted #383838;
+					line-height: 50px;
+					padding-left: 30px;
+					font-size: 20px;
+					font-family: Arial;
+				}
+	
+				#side-menu ul li:hover
+				{
+					background-color: #242BFF;
+				}
+	
+				#side-menu ul li a
+				{
+					color: #FFFFFF;
+					text-decoration: none;
+				}
+	
+				#body
+				{
+					width: 100%;
+				}
+	
+				#local
+				{
+					float: left;
+					width: 100%;
+				}
+	
+				#callout
+				{
+					width: 70%;
+					margin: 0px auto;
+					margin-top: 30px;
+					font-size: 30px;
+					color: #FFFFFF;
+					font-family: Ariel, Helvetica, sans-serif;
+					background-color: #676CFF;
+					text-align: center;
+					opacity: 0.85;
+					border: 1px solid #A0A2C6;
+					border-radius: 25px;
+					-webkit-border-top-left-radius:25px;
+					-moz-border-radius-topleft:25px;
+					border-top-left-radius:25px;
+					-webkit-border-top-right-radius:25px;
+					-moz-border-radius-topright:25px;
+					border-top-right-radius:25px;
+					-webkit-border-bottom-right-radius:25px;
+					-moz-border-radius-bottomright:25px;
+					border-bottom-right-radius:25px;
+					-webkit-border-bottom-left-radius:25px;
+					-moz-border-radius-bottomleft:25px;
+					border-bottom-left-radius:25px;
+				}
+
+				.mobileHide
+				{
+					display: none;
+				}
+				.mobileShow
+				{
+					display: block;
+				}
+				
+			}
+			
+			/* Edit Below to Customize Widths 768 => 1222px */
+			@media (min-width:768px) and (max-width: 1222px) {
+				.banner
+				{
+					background-color: #000000;
+					opacity: 0.5;
+					width: 100%;
+					height: 60px;
+					color: #FFFFFF;
+					font-family: Calibri, sans-serif;
+					font-size: 30px;
+					line-height: 60px;
+				}
+				
+				.center-text
+				{
+					text-align: center;
+				}
+				
+				.mobileHide
+				{
+					display: block;
+				}
+				
+				.mobileShow
+				{
+					display: none;
+				}
+				
+				.menu
+				{
+					float: left;
+					width: 33%;
+				}
+			
+				.login
+				{
+					float: right;
+					text-align: right;
+					width: 33%;
+				}
+			
+				.companyName
+				{
+					margin: 0px auto;
+					display: block;
+					text-align: center;
+					width: 33%;
+				}
+			
+				.banner ul
+				{
+					list-style-type: none;
+					width: 100%;
+					padding: 0; 
+					margin: 0;
+				}
+			
+				.banner ul li
+				{
+					display: block;
+					float: left;
+					width: 33.3%;
+				}
+			
+				.banner ul li a
+				{
+					color: #FFFFFF;
+					text-decoration: none;
+				}
+			
+				.last
+				{
+					text-align: right;
+				}
+			
+				.pointer
+				{
+					cursor: pointer;
+				}
+			
+				#side-menu
+				{
+					display: none;
+					background-color: #000000;
+					color: #FFFFFF;
+					width: 100%;
+					opacity: .8;
+					float: left;
+				}
+			
+				#side-menu ul
+				{
+					list-style-type: none;
+					padding: 0;
+					margin: 0;
+				}
+			
+				#side-menu ul li
+				{
+					height: 50px;
+					border-bottom: 1px dotted #383838;
+					line-height: 50px;
+					padding-left: 30px;
+					font-size: 20px;
+					font-family: Arial;
+					text-align: center;
+				}
+			
+				#side-menu ul li:hover
+				{
+					background-color: #242BFF;
+				}
+			
+				#side-menu ul li a
+				{
+					color: #FFFFFF;
+					text-decoration: none;
+				}
+			
+				#body
+				{
+					width: 100%;
+				}
+			
+				#local
+				{
+					float: left;
+					width: 100%;
+				}
+			
+				#callout
+				{
+					width: 60%;
+					margin: 0px auto;
+					margin-top: 150px;
+					font-size: 30px;
+					color: #FFFFFF;
+					font-family: Ariel, Helvetica, sans-serif;
+					background-color: #676CFF;
+					text-align: center;
+					opacity: 0.85;
+					border: 1px solid #A0A2C6;
+					border-radius: 25px;
+					-webkit-border-top-left-radius:25px;
+					-moz-border-radius-topleft:25px;
+					border-top-left-radius:25px;
+					-webkit-border-top-right-radius:25px;
+					-moz-border-radius-topright:25px;
+					border-top-right-radius:25px;
+					-webkit-border-bottom-right-radius:25px;
+					-moz-border-radius-bottomright:25px;
+					border-bottom-right-radius:25px;
+					-webkit-border-bottom-left-radius:25px;
+					-moz-border-radius-bottomleft:25px;
+					border-bottom-left-radius:25px;
+				}
+				
+			}
+			
+			/* Edit Below to Customize Widths > 1223px */
+			@media (min-width:1223px) {
+			
+				.banner
+				{
+					background-color: #000000;
+					opacity: 0.5;
+					width: 100%;
+					height: 60px;
+					color: #FFFFFF;
+					font-family: calibri, sans-serif;
+					font-size: 50px;
+					line-height: 60px;
+				}
+				
+				.mobileHide
+				{
+					display: block;
+				}
+				
+				.mobileShow
+				{
+					display: none;
+				}
+				
+				.menu
+				{
+					float: left;
+					width: 33%;
+				}
+			
+				.login
+				{
+					float: right;
+					text-align: right;
+					width: 33%;
+				}
+			
+				.companyName
+				{
+					margin: 0px auto;
+					display: block;
+					text-align: center;
+					width: 33%;
+				}
+			
+				.banner ul
+				{
+					list-style-type: none;
+					width: 100%;
+					padding: 0; 
+					margin: 0;
+				}
+			
+				.banner ul li
+				{
+					display: block;
+					float: left;
+					width: 33.3%;
+				}
+			
+				.banner ul li a
+				{
+					color: #FFFFFF;
+					text-decoration: none;
+				}
+				
+				.banner ul li a:hover
+				{
+					color: blue;
+					background-color: #FFFFFF;
+				}
+			
+				.last
+				{
+					text-align: right;
+				}
+			
+				.pointer
+				{
+					cursor: pointer;
+				}
+			
+				#side-menu
+				{
+					display: none;
+					background-color: #000000;
+					color: #FFFFFF;
+					height: 92%;
+					width: 20%;
+					opacity: .8;
+					float: left;
+				}
+			
+				#side-menu ul
+				{
+					list-style-type: none;
+					padding: 0;
+					margin: 0;
+				}
+			
+				#side-menu ul li
+				{
+					height: 50px;
+					border-bottom: 1px dotted #383838;
+					line-height: 50px;
+					padding-left: 30px;
+					font-size: 18px;
+					font-family: Arial;
+				}
+			
+				#side-menu ul li:hover
+				{
+					background-color: #242BFF;
+				}
+			
+				#side-menu ul li a
+				{
+					color: #FFFFFF;
+					text-decoration: none;
+				}
+			
+				#body
+				{
+					width: 100%;
+				}
+			
+				#local
+				{
+					float: left;
+					width: 100%;
+				}
+			
+				#callout
+				{
+					width: 60%;
+					margin: 0px auto;
+					margin-top: 50px;
+					font-size: 25px;
+					color: #000000;
+					background-color: #FFFFFF;
+					opacity: .85;
+					font-family: Ariel, Helvetica, sans-serif;
+					text-align: left;
+					height: 440px;
+				}
+				
+				#callout form label
+				{
+					
+					display: block;
+					float: left;
+					width: 44%;
+					padding-left: 3%;
+					font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+					font-size: 17px;
+					line-height: 1.42857143;
+					color: #555555;
+					font-weight: 700;
+				}
+				
+				#callout form div div
+				{
+					/*float: left;*/
+					display: inline-block;
+					width: 53%;
+				}
+				
+				.form-line-wrapper
+				{
+					width: 50%;
+					height: 60px;
+					float: left;
+				}
+				
+				.final-line-wrapper
+				{
+					width: 100%;
+					height: 100px;
+				}
+				
+				.select-three-col
+				{
+					float: left;
+					width: 20%;
+					margin-left: 10px;
+				}
+				
+				.live
+				{
+					background-color: #565656;
+				}
+				
+			}			
+			.button {
+				-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+				-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+				box-shadow:inset 0px 1px 0px 0px #ffffff;
+				background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );
+				background:-moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
+				filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
+				background-color:#ededed;
+				-webkit-border-top-left-radius:0px;
+				-moz-border-radius-topleft:0px;
+				border-top-left-radius:0px;
+				-webkit-border-top-right-radius:0px;
+				-moz-border-radius-topright:0px;
+				border-top-right-radius:0px;
+				-webkit-border-bottom-right-radius:0px;
+				-moz-border-radius-bottomright:0px;
+				border-bottom-right-radius:0px;
+				-webkit-border-bottom-left-radius:0px;
+				-moz-border-radius-bottomleft:0px;
+				border-bottom-left-radius:0px;
+				text-indent:0;
+				border:1px solid #dcdcdc;
+				display:inline-block;
+				color:#777777;
+				font-family:Arial;
+				font-size:15px;
+				font-weight:bold;
+				font-style:normal;
+				height:40px;
+				line-height:40px;
+				width:200px;
+				text-decoration:none;
+				text-align:center;
+				text-shadow:1px 1px 0px #ffffff;
+			}
+			.button:hover {
+				background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) );
+				background:-moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
+				filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed');
+				background-color:#dfdfdf;
+			}.button:active {
+				position:relative;
+				top:1px;
+			}
+			.center-text
+			{
+				text-align: center;
+			}
+			
+			.form-control
+			{
+				display: block;
+				width: 80%;
+				height: 34px;
+				padding: 6px 12px;
+				font-size: 14px;
+				line-height: 1.42857143;
+				color: #555;
+				background-color: #fff;
+				background-image: none;
+				border: 1px solid #ccc;
+				border-radius: 4px;
+				-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+				box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+				-webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+				transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+			}
+			
+			.btn-info 
+			{
+				background-image: -webkit-linear-gradient(#04519b, #033c73 60%, #02325f);
+				background-image: linear-gradient(#04519b, #033c73 60%, #02325f);
+				background-repeat: no-repeat;
+				filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#033c73', endColorstr='#022241', GradientType=0);
+				filter: none;
+				border-bottom: 1px solid #022241;
+				color: #ffffff;
+				background-color: #033c73;
+				border-color: #033c73;
+			}
+
+			.btn 
+			{
+				text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+				display: inline-block;
+				margin-bottom: 0;
+				font-weight: normal;
+				text-align: center;
+				vertical-align: middle;
+				cursor: pointer;
+				background-image: none;
+				border: 1px solid transparent;
+				white-space: nowrap;
+				padding: 8px 12px;
+				font-size: 14px;
+				line-height: 1.42857143;
+				border-radius: 4px;
+				-webkit-user-select: none;
+				box-shadow: inset 0px 1px 0px 0px #033c73;
+				background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #033c73), color-stop(1, #022241) );
+				margin-right: 30px;
+			}
+			
+			.btn:hover {
+				background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #022241), color-stop(1, #033c73) );
+				background:-moz-linear-gradient( center top, #022241 5%, #033c73 100% );
+				filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#022241', endColorstr='#033c73');
+				background-color:#022241;
+			}
+
+ 
+/* 
+ 			.btn {
+				-moz-box-shadow:inset 0px 1px 0px 0px #033c73;
+				-webkit-box-shadow:inset 0px 1px 0px 0px #033c73;
+				box-shadow:inset 0px 1px 0px 0px #033c73;
+				background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #033c73), color-stop(1, #022241) );
+				background:-moz-linear-gradient( center top, #033c73 5%, #022241 100% );
+				filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#033c73', endColorstr='#022241');
+				background-color:#033c73;
+				-webkit-border-top-left-radius:0px;
+				-moz-border-radius-topleft:0px;
+				border-top-left-radius:0px;
+				-webkit-border-top-right-radius:0px;
+				-moz-border-radius-topright:0px;
+				border-top-right-radius:0px;
+				-webkit-border-bottom-right-radius:0px;
+				-moz-border-radius-bottomright:0px;
+				border-bottom-right-radius:0px;
+				-webkit-border-bottom-left-radius:0px;
+				-moz-border-radius-bottomleft:0px;
+				border-bottom-left-radius:0px;
+				text-indent:0;
+				border:1px solid transparent;
+				display:inline-block;
+				color:#ffffff;
+				font-family:Arial;
+				font-size:15px;
+				font-weight:bold;
+				font-style:normal;
+				height:40px;
+				line-height:40px;
+				width:200px;
+				text-decoration:none;
+				text-align:center;
+				text-shadow:1px 1px 0px #033c73;
+				margin-right: 30px;
+			}
+			.btn:hover {
+				background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #033c73), color-stop(1, #022241) );
+				background:-moz-linear-gradient( center top, #033c73 5%, #022241 100% );
+				filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#033c73', endColorstr='#022241');
+				background-color:#033c73;
+			}.btn:active {
+				position:relative;
+				top:1px;
+			}
+ */
+		</style>
+		<script type="text/javascript" src="../js/jquery-1.10.2.min.js"></script>
+	</head>
+	<body>
+		<div class="banner">
+			<ul class="mobileHide">
+				<li>
+					<span class="pointer" onclick="menuDrop()">Menu</span>
+				</li>
+				<li class="center-text">
+					<a href="../index.php" style="font-family: 'Brush Script MT';">Mobile Auto Salon</a>
+				</li>
+				<li class="last pointer">
+					<a href="../DeepBlueAdmin/signin.html">Sign-in</a>
+				</li>
+			</ul>
+			<ul class="mobileShow">
+				<li>
+					<span class="pointer" onclick="menuDrop()">Menu</span>
+				</li>
+				<li class="last pointer">
+					<a href="../DeepBlueAdmin/signin.html">Sign-in</a>
+				</li>
+			</ul>
+		</div>
+		<div id="body">
+			<div id="side-menu">
+				<ul>
+					<li>
+						<a href="../index.php">Home</a>
+					</li>
+					<li>
+						Join MAS
+					</li>
+					<li class="live">
+						<a href="">Request Mobile Detail</a>
+					</li>
+					<li>
+						<a href="../signup.html">Sign-up</a>
+					</li>
+					<li>
+						Apply to become a Detailer
+					</li>
+				</ul>
+			</div>
+			<div id="local">
+				<div id="callout">
+					<form method="POST" action="service-request.php">
+						<div class="form-line-wrapper" style="height: 30px;">
+							
+						</div>
+						<div class="form-line-wrapper" style="height: 30px;">
+							
+						</div>
+						<div class="form-line-wrapper" style="width: 100%; text-align: center;">
+							<label style="width: 100%; padding: 0; margin: 0; font-size: 30px;">Request A Mobile Detail</label>
+						</div>
+						<div class="form-line-wrapper">
+							<label>Name:</label>
+							<div><input type="text" class="form-control" placeholder="Firstname Lastname"></div>
+						</div>
+						<div class="form-line-wrapper">
+							<label>Email:</label>
+							<div><input type="text" class="form-control" placeholder="Email Address"></div>
+						</div>
+						<div class="form-line-wrapper">
+							<label>Make:</label>
+							<div>
+								<select name="make" id="make" class="form-control">
+									<option>--Please Select--</option>
+									<option>Acura</option>
+									<option>Audi</option>
+									<option>BMW</option>
+									<option>Buick</option>
+									<option>Cadillac</option>
+									<option>Chevy</option>
+									<option>Chrysler</option>
+									<option>Dodge</option>
+									<option>Fiat</option>
+									<option>Ford</option>
+									<option>GMC</option>
+									<option>Honda</option>
+									<option>Hummer</option>
+									<option>Hyundai</option>
+									<option>Infiniti</option>
+									<option>Jaguar</option>
+									<option>Jeep</option>
+									<option>Kia</option>
+									<option>Land Rover</option>
+									<option>Lexus</option>
+									<option>Lincoln</option>
+									<option>Mazda</option>
+									<option>Mercedes-Benz</option>
+									<option>Mini</option>
+									<option>Mitsubishi</option>
+									<option>Nissan</option>
+									<option>Oldsmobile</option>
+									<option>Pontiac</option>
+									<option>Porsche</option>
+									<option>Saturn</option>
+									<option>Scion</option>
+									<option>Smart</option>
+									<option>Subaru</option>
+									<option>Suzuki</option>
+									<option>Toyota</option>
+									<option>Volkswagon</option>
+									<option>Volvo</option>
+								</select>
+							</div>	
+						</div>
+						<div class="form-line-wrapper">
+							<label>Model:</label>
+							<div>
+								<select name="model" id="model" class="form-control">
+									<option>--Please Select--</option>
+								</select>
+							</div>	
+						</div>
+						<div class="form-line-wrapper">	
+							<label>Type of Detail:</label>
+							<div>
+								<select class="form-control">
+									<option>--Please Select--</option>
+									<option>Car Wash and Wax</option>
+									<option>Interior Detail</option>
+									<option>Exterior Detail</option>
+									<option>BMD Express Detail</option>
+									<option>BMD Total Detail</option>
+									<option>Carpet Shampoo</option>
+									<option>Headlight Restoration</option>
+									<option>Engine Cleaning</option>
+								</select>
+							</div>	
+						</div>
+						<div class="form-line-wrapper">
+							<label>License Plate Number:</label>
+							<div>
+								<input type="text" class="form-control" placeholder="License Plate Number">
+							</div>
+						</div>
+						<div class="form-line-wrapper">
+							<label>Date of Service:</label>
+							<div>
+								<select class="form-control" style="float: left; width: 20%; margin-left: 10px;">
+									<option>--Month--</option>
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+									<option>6</option>
+									<option>7</option>
+									<option>8</option>
+									<option>9</option>
+									<option>10</option>
+									<option>11</option>
+									<option>12</option>
+								</select>
+								<select class="form-control" style="float: left; width: 20%; margin-left: 10px;">
+									<option>---Day---</option>
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+									<option>6</option>
+									<option>7</option>
+									<option>8</option>
+									<option>9</option>
+									<option>10</option>
+									<option>11</option>
+									<option>12</option>
+									<option>13</option>
+									<option>14</option>
+									<option>15</option>
+									<option>16</option>
+									<option>17</option>
+									<option>19</option>
+									<option>20</option>
+									<option>21</option>
+									<option>22</option>
+									<option>23</option>
+									<option>24</option>
+									<option>25</option>
+									<option>26</option>
+									<option>27</option>
+									<option>28</option>
+									<option>29</option>
+									<option>30</option>
+									<option>31</option>
+								</select>
+								<select class="form-control" style="float: left; width: 20%; margin-left: 10px;">
+									<option>---Year---</option>
+									<option>2014</option>
+									<option>2015</option>
+									<option>2016</option>
+									<option>2017</option>
+									<option>2018</option>
+								</select>
+							</div>	
+						</div>	
+						<div class="form-line-wrapper">
+							<label>Time of Service:</label>
+							<div>
+								<select class="form-control" style="float: left; width: 20%; margin-left: 10px;">
+									<option>--Hour--</option>
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+									<option>6</option>
+									<option>7</option>
+									<option>8</option>
+									<option>9</option>
+									<option>10</option>
+									<option>11</option>
+									<option>12</option>
+								</select>
+								<select class="form-control" style="float: left; width: 20%; margin-left: 10px;">
+									<option>---Minute---</option>
+									<option>00</option>
+									<option>10</option>
+									<option>20</option>
+									<option>30</option>
+									<option>40</option>
+									<option>50</option>
+								</select>
+								<select class="form-control" style="float: left; width: 20%; margin-left: 10px;">
+									<option>---Frame---</option>
+									<option>AM</option>
+									<option>PM</option>
+
+								</select>
+							</div>	
+						</div>	
+						<div class="form-line-wrapper">
+							<label>Location of Detail:</label>
+							<div>
+								<input type="text" class="form-control" placeholder="1234 Street st. City, State, Zipcode">
+							</div>	
+						</div>	
+						<div class="form-line-wrapper">	
+							<input type="checkbox">
+							<span style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 17px; line-height: 1.42857143; color: #555555; font-weight: 700;">I hereby accept the terms and conditions of this site.</span>
+						</div>
+						<div class="form-line-wrapper">
+						
+						</div>
+						<div class="form-line-wrapper" style="text-align: right;">
+							<input type="submit" name="submit" value="Request Detail" class="btn btn-info">
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			var acuraModels = ['CL', 'ILX', 'ILX Hybrid', 'Integra', 'Legend', 'MDX', 'NSX', 'NSX-T', 'RDX', 'RL', 'RLX', 'RSX',
+								'SLX', 'TL', 'TSX', 'Vigor', 'ZDX'],
+				audiModels = ['80', '90', '100','A3', 'A4', 'A5', 'A6', 'A7', 'A8', 'AllRoad', 'Cabriolet', 'Q5', 'Q5 Hybrid', 
+								'Q7', 'Quattro', 'R8', 'RS 5', 'RS 7', 'RS', 'RS 4', 'RS6', 'S4', 'S5', 'S6', 'S7', 'S8', 'SQ5', 
+								'TT', 'TTS'],
+				bmwModels = ['1 Series', '2 Series', '3 Series', '4 Series', '5 Series', '6 Series', '7 Series', '8 Series', 
+								'ActiveHybrid 7', 'ALPINA B6 Gran Coupe', 'i3', 'M', 'M235', 'M3', 'M4', 'M5', 'M6', 'X1', 'X3', 
+								'X4', 'X5', 'X6 M', 'Z3', 'Z4', 'Z8'],
+				buickModels = ['Century', 'Enclave', 'Encore', 'LaCrosse', 'LeSabre', 'Lucerne', 'Park Avenue', 'Regal', 
+								'Rendezvous', 'Rainier', 'Riviera', 'Roadmaster', 'Skylark', 'Terraza', 'Verano'],
+				cadillacModels = ['ATS Sedan', 'CTS Coupe', 'CTS Sedan', 'CTS Sports Wagon', 'CTS-V Coupe', 'CTS-V Sedan', 
+								'CTS-V Wagon', 'ELR Coupe', 'Escalade','Escalade ESV', 'SRX Crossover', 'XTS Sedan'],
+				chevyModels = ['Astro', 'Avalanche', 'Aveo', 'Beretta','Blazer', 'Camaro', 'Caprice', 'Cavalier', 'City Express', 
+								'Chevy Van', 'Cobalt', 'Colorado', 'Corvette', 'Corsica', 'Cruze', 'Equinox', 'Express', 
+								'Express 2500', 'Express 3500', 'HHR','Impala', 'Lumina', 'Lumina Minivan', 'Malibu', 
+								'Malibu Hybrid', 'Malibu MAXX', 'Metro', 'Monte Carlo', 'Prizm', 'Silverado 2500HD', 'SS', 
+								'Silverado', 'Silverado 1500 HD', 'Silverado 1500 Hybrid', 'Silverado 2500', 'Silverado 3500HD', 
+								'Sonic', 'Spark', 'Spark EV', 'Sportvan', 'SSR', 'Suburban', 'Suburban 1500', 'Traverse', 
+								'Tracker', 'Trailblazer', 'Trailblazers EXT', 'Tahoe Hybrid', 'Uplander', 'Venture', 'Volt', ],
+				chryslerModels = ['200', '300', '300M', 'Aspen', 'Concorde', 'Cirrus', 'Crossfire', 'Fifth Avenue', 'Imperial', 
+								'LeBaron', 'LHS', 'New Yorker', 'Pacificer', 'Prowler', 'PT Cruiser', 'Sebring', 'Voyager'],
+				dodgeModels = ['Avenger' , 'Caravan', 'Caliber', 'Charger', 'Challenger', 'Dakota', 'Dart', 'Daytona', 'Durango', 
+								'Dynasty', 'Grand Caravan', 'Intrepid', 'Journey', 'Magnum', 'Monaco', 'Neon', 'Nitro', 
+								'Ramcharger', 'Ram 150', 'Ram 250', 'Ram 350', 'Ram Pickup 1500', 'Ram Pickup 2500', 
+								'Ram Pickup 3500', 'Ram Van', 'Ram Van 1500', 'Ram Van 2500', 'Ram Van 3500', 'Ram Wagon', 
+								'Stratus', 'Shadow', 'Spirit', 'Stealth', 'Viper'],
+				fiatModels = ['500', '500c', '500e', '500L'], 
+				fordModels = ['Aerostar', 'Aspire', 'Bronco', 'C-Max Energi', 'C-Max Hybrid', 'Contour', 'Crown Victoria', 
+								'E-150', 'E-250', 'E-350 Super Duty', 'Edge', 'Escape', 'Escape Hybrid', 'Escort', 'Expedition', 
+								'Excursion', 'Expidition EL', 'Explorer', 'Explorer Sport', 'Explorer Sport Trac', 'F-150', 
+								'F-150 Heritage', 'F-250', 'F-350', 'F-450', 'Festiva', 'Fiesta', 'Five Hundred', 'Flex', 
+								'Freestar', 'Freestyle', 'Focus', 'Focus Electric', 'Focus ST', 'Fusion', 'Fusion Energi', 
+								'Fusion Hybrid', 'GT', 'Mustang', 'Probe', 'Ranger', 'Shelby GT', 'Taurus', 'Taurus X', 'Tempo', 
+								'Thunderbird', 'Transit-150', 'Transit-250', 'Transit-350', 'Transit Connect', 'Windstar'],
+				gmcModels = ['Acadia', 'Canyon', 'Envoy', 'Envoy XL', 'Envoy XUV', 'Magnavan', 'Rally Wagon', 'Safari', 'Savana', 
+								'Savana 2500', 'Savana 3500', 'Sierra 1500', 'Sierra 1500 Classic', 'Sierra 1500 HD', 
+								'Sierra 1500HD Classic', 'Sierra 1500 Hybrid', 'Sierra 2500', 'Sierra 2500 Chassis', 
+								'Sierra 2500HD', 'Sierra 2500HD Classic', 'Sierra 3500', 'Sierra 3500HD', 'Sierra 3500 Classic', 
+								'Sonoma', 'Terrain', 'Vandura', 'Yukon', 'Yukon Hybrid', 'Yukon XL'],
+				hondaModels = ['Accord', 'Accord Hybrid', 'Accord Plug-In Hybrid', 'Civic', 'Civic Hybrid', 'Civic Natural Glass', 
+								'CR-V', 'CR-Z','Crosstour', 'Del Sol', 'Element','Fit', 'Fit EV', 'Insight', 'Odyssey', 
+								'Passport','Pilot', 'Prelude', 'Ridgeline', 'S2000'],
+				hummerModels = ['H1', 'H2 SUT', 'H3', 'H3T'],
+				hyundaiModels = ['Accent', 'Azera', 'Entourage', 'Elantra', 'Elantra GT', 'Elantra Touring', 'Equus', 'Excel', 
+								'Genesis', 'Santa Fe', 'Santa Fe Sport', 'Sonata', 'Scoupe', 'Sonata Hybrid', 'Tiburon', 
+								'Tucson', 'Veloster', 'Veracruz', 'XG300', 'XG350'],
+				infinitiModels = ['FX','G', 'I', 'IPL', 'JX', 'M', 'Q', 'Q50', 'Q50 Hybrid','Q60', 'Q60 IPL', 'Q70', 'Q70h', 
+								'QX', 'QX50', 'QX60', 'QX60 Hybrid', 'QX70', 'QX80'],
+				jaguarModels = ['F-Type', 'S-Type', 'XF', 'XJ', 'XJR','XJS', 'XK', 'XK-Series', 'X-Type'],
+				jeepModels = ['Cherokee', 'Comanche', 'Commander', 'Compass', 'Grand Cherokee', 'Liberty', 'Patriot', 'Wrangler'],
+				kiaModels = ['Amanti', 'Borrego', 'Cadenza', 'Forte', 'Forte Koup', 'K900', 'Optima', 'Optima Hybrid', 'Rio', 
+								'Rio5', 'Rondo', 'Sedona', 'Sephia', 'Sorento', 'Soul', 'Spectra', 'Spectra5', 'Sportage'],
+				landroverModels = ['Defender', 'Discovery', 'Discovery Series II', 'Freelander', 'LR2', 'LR3', 'LR4', 
+								'Range Rover', 'Range Rover Evoque', 'Range Rover Sport'],
+				lexusModels = ['CT' ,'ES', 'GS', 'GX', 'HS', 'IS', 'LFA', 'LS', 'LX', 'RX', 'SC'],
+				lincolnModels = ['Aviator', 'Blackwood', 'Continental', 'LS', 'Mark LT', 'Mark VII', 'Mark VIII', 'MKC', 'MKS', 
+								'MKT', 'MKX', 'MKZ', 'MKZ Hybrid', 'Navigator', 'Town Car', 'Zephyr'],
+				mazdaModels = ['626', '626 Cronos', '929', 'B2500', 'B-Series Pickup', 'CX-5', 'CX-7', 'CX-9', 'Mazda2', 
+								'Mazda3', 'Mazda5', 'Mazda6', 'MazdaSpeed3', 'MazdaSpeed Protege', 'Millenia', 'MPV', 'MX-3', 
+								'MX-5 Miata', 'MX-6', 'Navajo', 'Protege5', 'RX-8', 'RX-7', 'Tribute', 'Tribute Hybrid'],
+				mercedesModels = ['190-Class', '300-Class', '400-Class', '500-Class', '600-Class', 'C-Class', 'CLA-Class', 
+								'CL-Class', 'CLK-Class', 'CLS-Class', 'E-Class', 'G-Class', 'GL-Class', 'GLK-Class', 'M-Class', 
+								'R-Class', 'S-Class', 'SL-Class', 'SLK-Class', 'SLR McLaren', 'SLS AMG', 'Sprinter'],
+				miniModels = ['MINI Clubman', 'MINI Cooper', 'MINI Countryman', 'MINI Paceman', 'MINI Roadster'],
+				mitsubishiModels = ['3000GT', 'Diamante', 'Eclipse', 'Eclipse Spyder', 'Endeavor', 'Galant', 'i-MiEV', 'Lancer', 
+								'Lancer Evolution', 'Lancer Sportback', 'Mighty Max Pickup', 'Mirage', 'Montero', 'Montero Sport', 
+								'Outlander', 'Outlander Sport', 'Raider'],
+				nissanModels = ['370Z', 'Altima', 'Armada', 'Cube', 'Frontier', 'GT-R','Juke', 'LEAF', 'Maxima', 'Murano', 
+								'NV200', 'Pathfinder', 'Quest', 'Rogue', 'Sentra', 'Titan', 'Versa', 'Xterra'],
+				oldsmobileModels = ['Achieva', 'Alero', 'Aurora', 'Bravada', 'Custom Cruiser', 'Cutlass', 'Cutlass Ciera', 
+								'Cutlass Cruiser', 'Cutlass Supreme', 'Eighty-Eight', 'Eighty-Eight Royale', 'Intrigue', 'LSS', 
+								'Ninety-Eight', 'Regency', 'Silhouette', 'Toronado'],
+				pontiacModels = ['Aztek', 'Bonneville', 'Firebird', 'G3', 'G5', 'G6', 'G8', 'Grand AM', 'Grand Prix', 'GTO', 
+								'LeMans', 'Montana SV6', 'Solstice', 'Sunbird', 'Sunfire', 'SSE', 'Torrent', 'Trans Sport', 
+								'Vibe'],
+				porscheModels = ['911', '918 Spyder', '928', '968', 'Boxster', 'Carrera GT', 'Cayenne', 'Cayenne Hybrid', 
+								'Cayman', 'Cayman S', 'Macan', 'Panamera', 'Panamera e-Hybrid', 'Panamera Hybrid'],
+				saturnModels = ['Astra', 'Aura', 'EV1', 'Ion', 'L-Series', 'Outlook', 'Relay', 'S-Series', 'Sky', 'Vue'],
+				scionModels = ['FR-S', 'iQ', 'tC', 'xA', 'xB', 'xD'],
+				smartModels = ['smart'],
+				subaruModels = ['Baja', 'BRZ', 'Forester', 'Impreza WRX', 'Justy', 'Loyale', 'Legacy', 'Outback', 'SVX', 
+								'Tribeca', 'WRX', 'WRX STI', 'XV Crosstrek', 'XV Crosstrek Hybrid'],
+				suzukiModels = ['Aerio', 'Equator', 'Esteem','Forenza', 'Grand Vitara', 'Kizashi', 'Reno', 'Samurai', 'Swift', 
+								'SX4', 'Verona', 'XL7', 'X-90'],
+				toyotaModels = ['4Runner', 'Avalon', 'Avalon Hybrid', 'Camry', 'Camry Highbrid', 'Camry Solara', 'Celica', 
+								'Corolla', 'Cressida', 'Echo', 'FJ Cruiser', 'Highlander', 'Highlander Hybrid', 'Land Cruiser', 
+								'Matrix', 'MR2', 'MR2 Spyder', 'Paseo', 'Pickup', 'Previa', 'Prius', 'Prius C', 'prius Plug-In', 
+								'Prius V', 'Rav4', 'Rav4 EV', 'Sequoia', 'Sienna', 'Supra', 'T100', 'Tercel', 'Tundra', 'Tacoma', 
+								'Venza', 'Yaris'],
+				volkswagonModels = ['Beetle', 'Beetle NEW', 'Cabrio', 'CC', 'Corrado', 'Eos', 'EuroVan', 'Fox', 'GLI', 'Golf', 
+								'Golf R', 'GTI', 'Jetta', 'Jetta Hybrid', 'Jetta SportWagen', 'Passat', 'Phaeton', 'R32', 
+								'Routan', 'Tiguan', 'Touareg', 'Toureg Hybrid'],
+				volvoModels = ['S60', 'S80', 'V40', 'V60', 'V70', 'XC60', 'XC70', 'XC90'];
+			$('#make').change(function(){
+				var modelCount, i;
+				switch($(this).val()) 
+				{
+					case 'Acura':
+						changeCarMenu(acuraModels);
+						break;
+					
+					case 'Audi':
+						changeCarMenu(audiModels);
+						break;	
+				
+					case 'BMW':
+						changeCarMenu(bmwModels);
+						break;	
+				
+					case 'Buick':
+						changeCarMenu(buickModels);
+						break;	
+					
+					case 'Cadillac':
+						changeCarMenu(cadillacModels);
+						break;
+					
+					case 'Chevy':
+						changeCarMenu(chevyModels);
+						break;
+				
+					case 'Chrysler':
+						changeCarMenu(chryslerModels);
+						break;
+					
+					case 'Dodge':
+						changeCarMenu(dodgeModels);
+						break;
+					
+					case 'Fiat':
+						changeCarMenu(fiatModels);
+						break;
+				
+					case 'Ford':
+						changeCarMenu(fordModels);
+						break;		
+				
+					case 'GMC':
+						changeCarMenu(gmcModels);
+						break;
+					
+					case 'Honda':
+						changeCarMenu(hondaModels);
+						break;
+					
+					case 'Hummer':
+						changeCarMenu(hummerModels);
+						break;
+				
+					case 'Hyundai':
+						changeCarMenu(hyundaiModels);
+						break;	
+						
+					case 'Infiniti':
+						changeCarMenu(infinitiModels);
+						break;
+					
+					case 'Jaguar':
+						changeCarMenu(jaguarModels);
+						break;
+					
+					case 'Jeep':
+						changeCarMenu(jeepModels);
+						break;
+					
+					case 'Kia':
+						changeCarMenu(kiaModels);
+						break;
+						
+					case 'Land Rover':
+						changeCarMenu(landroverModels);
+						break;
+					
+					case 'Lexus':
+						changeCarMenu(lexusModels);
+						break;
+						
+					case 'Lincoln':
+						changeCarMenu(lincolnModels);
+						break;		
+					
+					case 'Mazda':
+						changeCarMenu(mazdaModels);
+						break;
+						
+					case 'Mercedes-Benz':
+						changeCarMenu(mercedesModels);
+						break;
+						
+					case 'Mini':
+						changeCarMenu(miniModels);
+						break;
+				
+					case 'Mitsubishi':
+						changeCarMenu(mitsubishiModels);
+						break;
+					
+					case 'Nissan':
+						changeCarMenu(nissanModels);
+						break;		
+				
+					case 'Oldsmobile':
+						changeCarMenu(oldsmobileModels);
+						break;
+					
+					case 'Pontiac':
+						changeCarMenu(pontiacModels);
+						break;
+					
+					case 'Porsche':
+						changeCarMenu(porscheModels);
+						break;
+					
+					case 'Saturn':
+						changeCarMenu(saturnModels);
+						break;
+				
+					case 'Scion':
+						changeCarMenu(scionModels);
+						break;	
+				
+					case 'Smart':
+						changeCarMenu(smartModels);
+						break;
+						
+					case 'Subaru':
+						changeCarMenu(subaruModels);
+						break;
+					
+					case 'Suzuki':
+						changeCarMenu(suzukiModels);
+						break;
+					
+					case 'Toyota':
+						changeCarMenu(toyotaModels);
+						break;
+					
+					case 'Volkswagon':
+						changeCarMenu(volkswagonModels);
+						break;
+					
+					case 'Volvo':
+						changeCarMenu(volvoModels);
+						break;	
+				}
+			});
+			
+			$('#month').change(function(){
+				changeDay($(this).val());
+			});
+			
+			function changeCarMenu(vehicleModels)
+			{
+				modelCount = vehicleModels.length;
+				var vehicleOptions;
+				for(i = 0; i < modelCount; i++)
+				{
+					vehicleOptions += '<option>'+vehicleModels[i]+'</option>';
+				}
+				$('#model').html(vehicleOptions);
+			}
+			
+			function changeDay(month)
+			{
+				var dayOptions;
+				switch(month)
+				{
+					case '1':
+						setDays(31);
+						break;
+					case '2':
+						setDays(28);
+						break;
+					case '3':
+						setDays(31);
+						break;
+					case '4':
+						setDays(30);
+						break;
+					case '5':	
+						setDays(31)	
+						break;
+					case '6':
+						setDays(30);
+						break;
+					case '7':
+						setDays(31);
+						break;
+					case '8':
+						setDays(31);
+						break;
+					case '9':
+						setDays(30);
+						break;
+					case '10':
+						setDays(31);
+						break;
+					case '11':
+						setDays(30);
+						break;
+					case '12':
+						setDays(31);
+						break;									
+				}
+			}
+			
+			function setDays(numDays)
+			{
+				var dayOptions, i;
+				for(i = 1; i <= numDays; i++)
+				{
+					dayOptions += '<option>'+i+'</option>';
+				}
+				$('#day').html(dayOptions);
+			}
+	
+			function menuDrop()
+			{
+				if(document.getElementById('side-menu').style.display == 'block')
+				{
+					document.getElementById('side-menu').style.display = 'none';
+					document.getElementById('local').style.width = '100%';
+				} else {
+					document.getElementById('side-menu').style.display = 'block';
+					document.getElementById('local').style.width = '80%';	
+				}
+			}
+		</script>
+	</body>
+</html>

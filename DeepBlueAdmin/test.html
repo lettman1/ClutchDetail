@@ -1,0 +1,28 @@
+<html>
+<head>
+    <script type="text/javascript" charset="utf-8" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="fancyBox-master/source/jquery.fancybox.js"></script>
+    <link rel="stylesheet" type="text/css" href="fancyBox-master/source/jquery.fancybox.css" media="screen" />
+</head>
+<body>
+
+<a href="#divForm" id="btnForm">Load Form</a>
+
+<div id="divForm" style="display:none">
+    <form action="tbd">
+        File: <input type="file" /><br /><br />
+        <input type="submit" />
+    </form>
+</div>
+
+<script type="text/javascript">
+$(function() {
+    $("#btnForm").fancybox({
+        'onStart': function() { $("#divForm").css("display","block"); },            
+        'onClosed': function() { $("#divForm").css("display","none"); }
+    });
+});
+</script>
+
+</body>
+</html>
